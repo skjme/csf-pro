@@ -41,9 +41,9 @@ public class UserController {
 		
 		logger.info("update data from database ...");
 		User u = userMapper.selectByPrimaryKey(1);
-		u.setUserName(u.getUserName() + Math.random());
+		u.setUserName("chaseshu-"+System.currentTimeMillis());
 		userMapper.updateByPrimaryKeySelective(u);
-		
+		u = userMapper.selectByPrimaryKey(1);
 		return u;
 	}
 

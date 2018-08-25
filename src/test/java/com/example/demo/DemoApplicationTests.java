@@ -17,7 +17,7 @@ public class DemoApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		userMapper.selectAllUser();
+//		userMapper.selectAllUser();
 		userMapper.selectByPrimaryKey(1);
 	}
 

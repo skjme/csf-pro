@@ -6,6 +6,8 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,9 +18,9 @@ import com.example.demo.model.User;
 
 @RestController
 @RequestMapping("/api")
-public class TestController {
+public class UserController {
 	
-	private final Logger logger = LoggerFactory.getLogger(TestController.class);
+	private final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
 	@Autowired
 	private UserMapper userMapper;
@@ -28,11 +30,21 @@ public class TestController {
     public User user(@PathVariable Integer uid){
         
 		logger.info("get data from database ...");
-		userMapper.selectByPrimaryKey(1);
-		User u = new User();
-		u.setUid(uid);
-		u.setName("哈哈");
+		User u = userMapper.selectByPrimaryKey(1);
+
         return u;
     }
+	
+	@CacheEvict(value="users", key="#uid") //根据主键更新
+	@RequestMapping("updateUser/{uid}")
+	public User udpateUser(@PathVariable Integer uid){
+		
+		logger.info("update data from database ...");
+		User u = userMapper.selectByPrimaryKey(1);
+		u.setUserName(u.getUserName() + Math.random());
+		userMapper.updateByPrimaryKeySelective(u);
+		
+		return u;
+	}
 
 }

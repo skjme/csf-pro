@@ -8,21 +8,35 @@ public class User implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 8359909038781983446L;
-	private Integer uid;
-	private String name;
-	public Integer getUid() {
-		return uid;
+	private Integer userId;
+	private String userName;
+	private String password;
+	private String phone;
+	public Integer getUserId() {
+		return userId;
 	}
-	public void setUid(Integer uid) {
-		this.uid = uid;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
-	public String getName() {
-		return name;
+	public String getUserName() {
+		return userName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
 	
 
 }

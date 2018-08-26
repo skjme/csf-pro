@@ -24,7 +24,7 @@ public class TestCreateOrderConcurrent {
     private final Logger logger = LoggerFactory.getLogger(TestCreateOrderConcurrent.class);
 
     //并发的用户数（同时并发的线程数）
-    private final static int threadNum = 100;
+    private final static int threadNum = 50;
     // 倒计数器（发令枪），用于制造线程的并发执行
     private final static CountDownLatch cdl = new CountDownLatch(threadNum);
 

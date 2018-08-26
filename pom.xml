@@ -70,7 +70,14 @@
 			<artifactId>zookeeper</artifactId>
 			<version>3.4.13</version>
 			<exclusions>
-				<exclusion></exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
 			</exclusions>
 		</dependency>
 

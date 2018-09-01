@@ -1,0 +1,8 @@
+2018-9-1 21:43:45 main INFO Starting DemoApplicationTests on DESKTOP-82C0TUN with PID 4644 (started by chaseshu in E:\GitHub\csf-pro\atest)
+2018-9-1 21:43:45 main DEBUG Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2018-9-1 21:43:45 main INFO No active profile set, falling back to default profiles: default
+2018-9-1 21:44:03 main INFO Started DemoApplicationTests in 19.115 seconds (JVM running for 26.743)
+2018-9-1 21:45:22 main INFO Starting DemoApplicationTests on DESKTOP-82C0TUN with PID 9224 (started by chaseshu in E:\GitHub\csf-pro\atest)
+2018-9-1 21:45:22 main DEBUG Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2018-9-1 21:45:22 main INFO No active profile set, falling back to default profiles: default
+2018-9-1 21:45:39 main INFO Started DemoApplicationTests in 18.696 seconds (JVM running for 22.681)

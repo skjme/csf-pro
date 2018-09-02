@@ -16,6 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.print.DocFlavor;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.locks.LockSupport;
 
 /**
  * Unit test for simple App.
@@ -75,4 +76,55 @@ public class AppTest {
 
         logger.error("getUserInfo调用时间为" + (System.currentTimeMillis() - currentTimeMillis));
     }
+
+
+    /**
+     * Park/Unpark
+     * 针对线程操作：阻塞和唤醒  区别Warit/Notify 面向Object，非Thread
+     * park和unpark无顺序要求    区别：先wait，再notify
+     * 针对指定线程进行唤醒      区别NotifyAll可以唤醒多个线程
+     */
+    @Test
+    public void testParkAndUnpark() throws InterruptedException {
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                // 通知
+                System.out.println("先通知");
+                LockSupport.unpark(thread);
+            }
+        }).start();
+
+        thread = Thread.currentThread();
+        Thread.sleep(2000L);
+        System.out.println("等待");
+        LockSupport.park(thread);//wait
+        System.out.println("XXXXXXXXOOOOOOOOOO");
+    }
+
+    @Test
+    public void testParkAndUnpark2() {
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(2000L);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                // 通知
+                System.out.println("通知");
+                LockSupport.unpark(thread);
+            }
+        }).start();
+
+        thread = Thread.currentThread();
+        System.out.println("先等待");
+        LockSupport.park(thread);//wait
+        System.out.println("XXXXXXXXOOOOOOOOOO");
+    }
+
+    static Thread thread = null;
 }

@@ -64,8 +64,8 @@ public class UserServiceThread {
         new Thread(integralInfoFutureTask).start();
 
         // 4. 合并为一个json对象
-
         JSONObject result = new JSONObject();
+        // 此处等待结果（没有执行完毕，则阻塞线程，等待结果，如果线程task执行完毕，则立即返回结果）
         result.putAll(userinfoFutureTask.get());
         result.putAll(integralInfoFutureTask.get());
 

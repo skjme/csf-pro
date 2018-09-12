@@ -61,7 +61,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<!--<scope>test</scope>-->
 		</dependency>
 
         <!-- add zookeeper and client-->
@@ -86,8 +86,12 @@
 			<artifactId>zkclient</artifactId>
 			<version>0.10</version>
 		</dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 
 	<build>
 		<plugins>

@@ -13,6 +13,7 @@
         <module>zk</module>
         <module>rabbitmq</module>
         <module>mutilThread</module>
+        <module>nio</module>
     </modules>
 
     <parent>

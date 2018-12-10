@@ -27,3 +27,6 @@
 
 /logs/
 */logs/
+
+*/node_modules/
+*/run/

@@ -1,0 +1,18 @@
+#https://eggjs.org/en/intro/quickstart.html
+
+## add egg 
+$ npm i egg --save
+$ npm i egg-bin --save-dev
+
+# add templates for Rendering
+npm i egg-view-nunjucks --save
+
+
+# add unit test
+npm i egg-mock --save-dev
+
+# run
+npm run dev
+
+# test
+npm test

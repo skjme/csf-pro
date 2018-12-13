@@ -1,5 +1,4 @@
 module.exports = app => {
-//    app.cache = new Cache();
     
     app.once('server', server => {
       // websocket
@@ -10,6 +9,9 @@ module.exports = app => {
     app.on('request', ctx => {
       // log receive request
       console.log('---request.url---', ctx.request.url);
+
+      console.log("app.cache", app.cache);
+      
       
     });
     app.on('response', ctx => {

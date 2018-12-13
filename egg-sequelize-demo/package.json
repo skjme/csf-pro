@@ -13,12 +13,15 @@
     "egg": "^2.14.1",
     "egg-sequelize": "^4.2.0",
     "egg-view-nunjucks": "^2.2.0",
+    "jsonwebtoken": "^8.4.0",
     "moment": "^2.22.2",
     "mysql2": "^1.6.4",
     "sequelize": "^4.41.2"
   },
   "devDependencies": {
     "egg-bin": "^4.9.0",
-    "egg-mock": "^3.20.1"
+    "egg-mock": "^3.20.1",
+    "factory-girl": "^5.0.4",
+    "sequelize-cli": "^5.4.0"
   }
 }

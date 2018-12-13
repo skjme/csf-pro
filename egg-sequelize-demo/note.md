@@ -4,12 +4,19 @@
 $ npm i egg --save
 $ npm i egg-bin --save-dev
 
+## add egg-sequelize && mysql2
+npm install --save egg-sequelize mysql2
+
 # add templates for Rendering
 npm i egg-view-nunjucks --save
 
+# add jwt
+npm install jsonwebtoken
 
 # add unit test
 npm i egg-mock --save-dev
+
+npm install --save-dev factory-girl
 
 # run
 npm run dev

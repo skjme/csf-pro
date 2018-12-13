@@ -1,25 +1,26 @@
-#https://eggjs.org/en/intro/quickstart.html
+## https://eggjs.org/en/intro/quickstart.html
 
 ## add egg 
-$ npm i egg --save
-$ npm i egg-bin --save-dev
+npm i egg --save
+
+npm i egg-bin --save-dev
 
 ## add egg-sequelize && mysql2
 npm install --save egg-sequelize mysql2
 
-# add templates for Rendering
+## add templates for Rendering
 npm i egg-view-nunjucks --save
 
-# add jwt
+## add jwt (token)
 npm install jsonwebtoken
 
-# add unit test
+## add unit test
 npm i egg-mock --save-dev
 
-npm install --save-dev factory-girl
+npm i factory-girl  --save-dev
 
-# run
+## run
 npm run dev
 
-# test
+## test
 npm test

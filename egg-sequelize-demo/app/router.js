@@ -18,10 +18,12 @@ module.exports = app => {
     // router.get('/news/:id', controller.news.detail);
 
     router.post('/form', controller.form.post);
+    router.post('/post', controller.post.create);
 
     router.get('s', '/search', middlewares.uppercase(), controller.search.index);
 
     router.get('encodeToken', '/token/encode', controller.token.index);
     router.get('verifyToken', '/token/decode', controller.token.decode);
+    router.redirect('/token/get', '/token/encode', 302);
 
   };

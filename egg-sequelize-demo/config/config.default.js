@@ -1,7 +1,5 @@
 exports.keys = "123456";
 
-
-
 // add middleware robot, auth
 exports.middleware = [
   'robot', 'auth'
@@ -21,6 +19,18 @@ exports.auth = {
     /api/i,
     /users/i,
   ]
+};
+
+exports.security = {
+  xframe: {
+    enable: false,
+  },
+  csrf: {
+    enable: false,
+    // queryName: '_csrf', // 通过 query 传递 CSRF token 的默认字段为 _csrf
+    // bodyName: '_csrf', // 通过 body 传递 CSRF token 的默认字段为 _csrf
+    // headerName: 'x-csrf-token', // 通过 header 传递 CSRF token 的默认字段为 x-csrf-token
+  },
 };
 
 // add news' configurations

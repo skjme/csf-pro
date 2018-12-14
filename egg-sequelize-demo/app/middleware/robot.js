@@ -4,7 +4,7 @@ module.exports = (options, app) => {
       const source = ctx.get('user-agent') || '';
       const match = options.ua.some(ua => ua.test(source));
       if (match) {
-        ctx.status = 403;
+        ctx.status = 403; //Forbidden
         ctx.message = 'Go away, robot.';
       } else {
         await next();

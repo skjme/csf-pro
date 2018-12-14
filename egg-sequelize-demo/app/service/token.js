@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const SECRET_KEY = "ADFADSFDASFDASGDASGADSFADSSFDASGFASG";
 
 class TokenService extends Service {
+    
     async signJwt(_id){
         return jwt.sign({
             data:{

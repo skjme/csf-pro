@@ -1,9 +1,54 @@
 [
   {
-    "name": null,
+    "name": "index",
     "methods": [
       "HEAD",
       "GET"
+    ],
+    "paramNames": [],
+    "path": "/home/index",
+    "regexp": "/^\\/home\\/index(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "ACL",
+      "BIND",
+      "CHECKOUT",
+      "CONNECT",
+      "COPY",
+      "DELETE",
+      "GET",
+      "HEAD",
+      "LINK",
+      "LOCK",
+      "M-SEARCH",
+      "MERGE",
+      "MKACTIVITY",
+      "MKCALENDAR",
+      "MKCOL",
+      "MOVE",
+      "NOTIFY",
+      "OPTIONS",
+      "PATCH",
+      "POST",
+      "PROPFIND",
+      "PROPPATCH",
+      "PURGE",
+      "PUT",
+      "REBIND",
+      "REPORT",
+      "SEARCH",
+      "SUBSCRIBE",
+      "TRACE",
+      "UNBIND",
+      "UNLINK",
+      "UNLOCK",
+      "UNSUBSCRIBE"
     ],
     "paramNames": [],
     "path": "/",
@@ -165,8 +210,21 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/users",
-    "regexp": "/^\\/users(?:\\/(?=$))?$/",
+    "path": "/api/v1/users",
+    "regexp": "/^\\/api\\/v1\\/users(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": "new_user",
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/api/v1/users/new",
+    "regexp": "/^\\/api\\/v1\\/users\\/new(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
@@ -177,8 +235,8 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/users",
-    "regexp": "/^\\/users(?:\\/(?=$))?$/",
+    "path": "/api/v1/users",
+    "regexp": "/^\\/api\\/v1\\/users(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
@@ -201,8 +259,32 @@
         "pattern": "[^\\/]+?"
       }
     ],
-    "path": "/users/:id",
-    "regexp": "/^\\/users\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
+    "path": "/api/v1/users/:id",
+    "regexp": "/^\\/api\\/v1\\/users\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": "edit_user",
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [
+      {
+        "name": "id",
+        "prefix": "/",
+        "delimiter": "/",
+        "optional": false,
+        "repeat": false,
+        "partial": false,
+        "asterisk": false,
+        "pattern": "[^\\/]+?"
+      }
+    ],
+    "path": "/api/v1/users/:id/edit",
+    "regexp": "/^\\/api\\/v1\\/users\\/((?:[^\\/]+?))\\/edit(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
@@ -225,8 +307,8 @@
         "pattern": "[^\\/]+?"
       }
     ],
-    "path": "/users/:id",
-    "regexp": "/^\\/users\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
+    "path": "/api/v1/users/:id",
+    "regexp": "/^\\/api\\/v1\\/users\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
@@ -248,45 +330,21 @@
         "pattern": "[^\\/]+?"
       }
     ],
-    "path": "/users/:id",
-    "regexp": "/^\\/users\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
+    "path": "/api/v1/users/:id",
+    "regexp": "/^\\/api\\/v1\\/users\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
   },
   {
-    "name": null,
+    "name": "u",
     "methods": [
       "HEAD",
       "GET"
     ],
     "paramNames": [],
-    "path": "/news",
-    "regexp": "/^\\/news(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "HEAD",
-      "GET"
-    ],
-    "paramNames": [
-      {
-        "name": "id",
-        "prefix": "/",
-        "delimiter": "/",
-        "optional": false,
-        "repeat": false,
-        "partial": false,
-        "asterisk": false,
-        "pattern": "[^\\/]+?"
-      }
-    ],
-    "path": "/news/:id",
-    "regexp": "/^\\/news\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
+    "path": "/users",
+    "regexp": "/^\\/users(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
@@ -318,14 +376,14 @@
     ]
   },
   {
-    "name": "getToken",
+    "name": "encodeToken",
     "methods": [
       "HEAD",
       "GET"
     ],
     "paramNames": [],
-    "path": "/token",
-    "regexp": "/^\\/token(?:\\/(?=$))?$/",
+    "path": "/token/encode",
+    "regexp": "/^\\/token\\/encode(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]

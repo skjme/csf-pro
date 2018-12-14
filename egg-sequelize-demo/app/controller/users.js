@@ -9,19 +9,58 @@ function toInt(str) {
 class UserController extends Controller {
   async index() {
     const ctx = this.ctx;
-    const query = { limit: toInt(ctx.query.limit), offset: toInt(ctx.query.offset) };
+    const sequelize = this.app.Sequelize;
+    const Op = sequelize.Op;
+
+    const queryCount = {
+      attributes: [[sequelize.fn('COUNT', sequelize.col('age')), 'no_age']],
+      limit: toInt(ctx.query.limit),
+      offset: toInt(ctx.query.offset)
+    };
+    await ctx.model.User.findAll(queryCount);
+
+    const query = {
+      attributes: ['id', 'name', 'age', ['age', 'userAge']],
+      limit: toInt(ctx.query.limit),
+      offset: toInt(ctx.query.offset),
+      where: {
+        [Op.or]: [{id: 1}, {id: 2}]
+      }
+    };
+
+    // remove attributes
+    // const query = {
+    //   attributes: {exclude: ['created_at']},
+    //   limit: toInt(ctx.query.limit),
+    //   offset: toInt(ctx.query.offset)
+    // };
+
+    // add attributes
+    // const query = {
+    //   attributes: {include:[[sequelize.fn('COUNT', sequelize.col('age')), 'no_age']]},
+    //   limit: toInt(ctx.query.limit),
+    //   offset: toInt(ctx.query.offset)
+    // };
+
     ctx.body = await ctx.model.User.findAll(query);
   }
 
   async show() {
     const ctx = this.ctx;
-    ctx.body = await ctx.model.User.findById(toInt(ctx.params.id));
+    // ctx.body = await ctx.model.User.findById(toInt(ctx.params.id));
+    ctx.body = await ctx.model.User.findByPk(toInt(ctx.params.id));
   }
 
   async create() {
     const ctx = this.ctx;
-    const { name, age } = ctx.request.body;
-    const user = await ctx.model.User.create({ name, age });
+    const {
+      name,
+      age
+    } = ctx.request.body;
+    const user = await ctx.model.User.create({
+      name,
+      age
+    });
     ctx.status = 201;
     ctx.body = user;
   }
@@ -35,8 +74,14 @@ class UserController extends Controller {
       return;
     }
 
-    const { name, age } = ctx.request.body;
-    await user.update({ name, age });
+    const {
+      name,
+      age
+    } = ctx.request.body;
+    await user.update({
+      name,
+      age
+    });
     ctx.body = user;
   }
 

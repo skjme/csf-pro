@@ -8,9 +8,8 @@ module.exports = app => {
     });
     app.on('request', ctx => {
       // log receive request
-      console.log('---request.url---', ctx.request.url);
-
-      console.log("app.cache", app.cache);
+      console.log('\n==REQUERST.URL:', ctx.request.url+"\n");
+      //console.log("app.cache", app.cache);
       
       
     });
@@ -18,6 +17,6 @@ module.exports = app => {
       // ctx.starttime is set by framework
       const used = Date.now() - ctx.starttime;
       // log total cost
-      console.log("----used=", used);
+      //console.log("----used=", used);
     });
   };

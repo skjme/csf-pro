@@ -11,6 +11,7 @@ chaseshu framework projects
     4 kafka
     5 RabbitMQ
   
-2019. first quarter
+2019. Q1
+
     1. egg+sequelize+mysql
 

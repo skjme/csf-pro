@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试ajax</title>
+</head>
+<body>
+    
+    <div id="d1">
+        <p>演示ajax请求、成功后开始赋值</p>
+    </div>
+    <p id="result"></p>
+    <div style="border:1px red solid">
+            <p></p>
+            Name:
+            <span id="name"></span>
+            <p></p>
+            age:
+            <span id="age"></span>
+            <p></p>
+    </div>
+
+    <!-- 引入jquery库-->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+    <!-- 开始写自己的代码-->
+    <script>
+        //原生写法
+        window.onload = function(){
+            //页面加载后执行的业务代码
+            
+        }
+
+        //jquery写法
+        $(function(){
+            //页面加载后执行的业务代码
+
+            var $d1 = $('#d1');//获取一个jquery对象
+           
+            // 获取值 并打印
+            console.log($d1.html());// 获取。。。
+            console.log($d1.text());
+           
+            //赋值
+            //$d1.html('<h1>Hello</h1>');
+            //$d1.text('<h1>haha</h1>');
+            
+            // 加载1.txt文件内容到$d1 
+           // $d1.load('1.txt');
+            var url = 'http://127.0.0.1:7001/user';
+            $.ajax({
+                type: 'GET',
+                dataType: 'json',
+                url: url,
+                data:{},//传递参数
+                
+                beforeSend:function(){
+                    $('#result').text('ajax开始请求。。。');
+                },
+
+                success:function(x){
+                    console.log('返回结果：', x);
+
+                    $('#result').text('ajax请求成功！');
+
+                    $('#name').text(x.name);
+                    $('#age').text(x.age);
+                    
+                }
+            });
+
+
+        });
+    </script>
+</body>
+</html>

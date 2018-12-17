@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试ajax</title>
+</head>
+<body>
+    
+    <div id="d1">
+        <p>演示ajax请求、成功后开始赋值</p>
+    </div>
+    <p id="result"></p>
+    <div style="border:1px red solid">
+            <p></p>
+            用户积分:
+            <span id="yhjf">200</span>
+            <p></p>
+            用户佣金:
+            <span id="yhyj">100</span>
+            <p></p>
+            我的推荐人:
+            <span id="refName">100</span>
+            <p></p>
+    </div>
+
+    <!-- 引入jquery库-->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+    <!-- 开始写自己的代码-->
+    <script>
+        //原生写法
+        window.onload = function(){
+            //页面加载后执行的业务代码
+            
+        }
+
+        //jquery写法
+        $(function(){
+            //页面加载后执行的业务代码
+
+            var $d1 = $('#d1');//获取一个jquery对象
+           
+            // 获取值 并打印
+            console.log($d1.html());// 获取。。。
+            console.log($d1.text());
+           
+            //赋值
+            //$d1.html('<h1>Hello</h1>');
+            //$d1.text('<h1>haha</h1>');
+            
+            // 加载1.txt文件内容到$d1 
+           // $d1.load('1.txt');
+            var url = 'http://api.mimaku.cn/v6/invitation/record/list/152?APPKEY=3172591486&RequestDate=2018-08-02%2015:49:48&EncryptKey=81D2223DC37FB4377BA1933AD07A8C99';
+            $.ajax({
+                type: 'GET',
+                dataType: 'json',
+                url: url,
+                data:{},//传递参数
+                
+                beforeSend:function(){
+                    $('#result').text('ajax开始请求。。。');
+                },
+
+                success:function(x){
+                    console.log('返回结果：', x);
+                    
+                    if(x.success == true){
+                        $('#result').text('ajax请求成功！ code=' + x.code);
+                         // $('#yhjf').text(1000);
+                        $('#yhjf').text(x.data.userPoints.score);
+                        $('#yhyj').text(x.data.userConsume.totalAmount);
+                        $('#refName').text(x.data.refUser.agent_name);
+                    
+                    }
+                }
+            });
+
+
+        });
+    </script>
+</body>
+</html>

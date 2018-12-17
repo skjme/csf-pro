@@ -19,6 +19,9 @@ npm i egg-mock --save-dev
 
 npm i factory-girl  --save-dev
 
+## 解决跨域问题
+npm i egg-cors --save
+
 ## run
 npm run dev
 

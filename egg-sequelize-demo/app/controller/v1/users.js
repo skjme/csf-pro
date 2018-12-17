@@ -27,6 +27,7 @@ class UserController extends Controller {
     console.log('--new---');
     
     const ctx = this.ctx;
+    ctx.body = "new";
     //ctx.body = await ctx.model.User.findById(toInt(ctx.params.id));
   }
 

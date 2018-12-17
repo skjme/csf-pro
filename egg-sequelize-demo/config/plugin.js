@@ -9,3 +9,9 @@ exports.sequelize = {
   enable: true,
   package: 'egg-sequelize',
 };
+
+// Enable plugin cors
+exports.cors = {
+  enable: true,
+  package: 'egg-cors',
+};

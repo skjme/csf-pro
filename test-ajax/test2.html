@@ -14,10 +14,10 @@
     <p id="result"></p>
     <div style="border:1px red solid">
             <p></p>
-            Name:
+            姓名:
             <span id="name"></span>
             <p></p>
-            age:
+            年龄:
             <span id="age"></span>
             <p></p>
     </div>
@@ -48,7 +48,8 @@
             
             // 加载1.txt文件内容到$d1 
            // $d1.load('1.txt');
-            var url = 'http://127.0.0.1:7001/user';
+            // var url = 'http://127.0.0.1:7001/user';
+            var url = 'http://127.0.0.1:7001/api/v1/users/1?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6eyJ1aWQiOiIxNTIifX0sImV4cCI6MTU0NTYzOTg2MCwiaWF0IjoxNTQ1MDM1MDYwfQ.PzzAr6SGjS_Myk-QCaZp-vz2TYtinGKuX0KCFrRDiHY';
             $.ajax({
                 type: 'GET',
                 dataType: 'json',

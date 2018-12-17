@@ -25,24 +25,24 @@ describe('test/app/service/users.test.js', () => {
 //     });
 //   });
 
-//   describe('POST /users', () => {
-//     it('should work', async () => {
-//       app.mockCsrf();
-//       let res = await app.httpRequest().post('/users')
-//         .send({
-//           age: 10,
-//           name: 'name',
-//         });
-//       assert(res.status === 201);
-//       assert(res.body.id);
-//     //   console.log(res.body);
+  describe('POST /users', () => {
+    it('should work', async () => {
+      app.mockCsrf();
+      let res = await app.httpRequest().post('/users')
+        .send({
+          age: 10,
+          name: 'name',
+        });
+      assert(res.status === 201);
+      assert(res.body.id);
+      console.log(res.body);
 
-//       res = await app.httpRequest().get(`/users/${res.body.id}`);
-//     //   console.log(res.body);
-//       assert(res.status === 200);
-//       assert(res.body.name === 'name');
-//     });
-//   });
+      res = await app.httpRequest().get(`/users/${res.body.id}`);
+    //   console.log(res.body);
+      assert(res.status === 200);
+      assert(res.body.name === 'name');
+    });
+  });
 
 //   describe('DELETE /users/:id', () => {
 //     it('should work', async () => {

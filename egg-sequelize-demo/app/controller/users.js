@@ -48,7 +48,7 @@ class UserController extends Controller {
   async show() {
     const ctx = this.ctx;
     // ctx.body = await ctx.model.User.findById(toInt(ctx.params.id));
-    ctx.body = await ctx.model.User.findByPk(toInt(ctx.params.id));
+    ctx.body = await ctx.model.User.findByPk(toInt(ctx.params.id)) || {};
   }
 
   async create() {

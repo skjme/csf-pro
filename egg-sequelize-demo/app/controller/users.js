@@ -1,32 +1,40 @@
 const Controller = require('egg').Controller;
 
-function toInt(str) {
-  if (typeof str === 'number') return str;
-  if (!str) return str;
-  return parseInt(str, 10) || 0;
-}
-
 class UserController extends Controller {
+
+  // 获取所有用户(分页/模糊) /users?name=na&age=18&pageSize=10&currentPage=1
   async index() {
-    const ctx = this.ctx;
-    const sequelize = this.app.Sequelize;
-    const Op = sequelize.Op;
+    const { ctx, service } = this
+    // 组装参数
+    const payload = ctx.query
+    // 调用 Service 进行业务处理
+    const res = await service.user.index(payload)
+    // 设置响应内容和响应状态码
+    ctx.helper.success({ctx, res})
+  }
 
-    const queryCount = {
-      attributes: [[sequelize.fn('COUNT', sequelize.col('age')), 'no_age']],
-      limit: toInt(ctx.query.limit),
-      offset: toInt(ctx.query.offset)
-    };
-    await ctx.model.User.findAll(queryCount);
+  async index_bak() {
+    const { app, ctx, service, logger } = this;
 
-    const query = {
-      attributes: ['id', 'name', 'age', ['age', 'userAge']],
-      limit: toInt(ctx.query.limit),
-      offset: toInt(ctx.query.offset),
-      where: {
-        [Op.or]: [{id: 1}, {id: 2}]
-      }
-    };
+    // // const ctx = this.ctx;
+    // const sequelize = app.Sequelize;
+    // const Op = sequelize.Op;
+
+    // const queryCount = {
+    //   attributes: [[sequelize.fn('COUNT', sequelize.col('age')), 'no_age']],
+    //   limit: toInt(ctx.query.limit),
+    //   offset: toInt(ctx.query.offset)
+    // };
+    // await ctx.model.User.findAll(queryCount);
+
+    // const query = {
+    //   attributes: ['id', 'name', 'age', ['age', 'userAge']],
+    //   limit: toInt(ctx.query.limit),
+    //   offset: toInt(ctx.query.offset),
+    //   where: {
+    //     [Op.or]: [{id: 1}, {id: 2}]
+    //   }
+    // };
 
     // remove attributes
     // const query = {
@@ -42,13 +50,14 @@ class UserController extends Controller {
     //   offset: toInt(ctx.query.offset)
     // };
 
-    ctx.body = await ctx.model.User.findAll(query);
+    //ctx.body = await ctx.model.User.findAll(query);
+
   }
 
   async show() {
     const ctx = this.ctx;
     // ctx.body = await ctx.model.User.findById(toInt(ctx.params.id));
-    ctx.body = await ctx.model.User.findByPk(toInt(ctx.params.id)) || {};
+    ctx.body = await ctx.model.User.findByPk(Number(ctx.params.id)) || {};
   }
 
   async create() {

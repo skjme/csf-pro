@@ -4,6 +4,8 @@
   "description": "",
   "main": "first.js",
   "scripts": {
+    "start": "egg-scripts start --port=7001 --daemon --title=egg-server-demo",
+    "stop": "egg-scripts stop",
     "dev": "egg-bin dev",
     "test": "egg-bin test"
   },
@@ -12,7 +14,9 @@
   "dependencies": {
     "egg": "^2.14.1",
     "egg-cors": "^2.1.2",
+    "egg-scripts": "^2.11.0",
     "egg-sequelize": "^4.2.0",
+    "egg-validate": "^2.0.2",
     "egg-view-nunjucks": "^2.2.0",
     "jsonwebtoken": "^8.4.0",
     "moment": "^2.22.2",

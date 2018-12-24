@@ -11,6 +11,12 @@ exports.cors = {
   package: 'egg-cors',
 };
 
+// Enable plugin validate
+exports.validate = {
+  enable: true,
+  package: 'egg-validate',
+};
+
 // Enable plugin nunjucks
 exports.nunjucks = {
   enable: true,

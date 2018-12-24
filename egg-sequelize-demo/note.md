@@ -14,6 +14,9 @@ npm i egg-view-nunjucks --save
 ## add jwt (token)
 npm install jsonwebtoken
 
+## add validate
+npm i egg-validate
+
 ## add unit test
 npm i egg-mock --save-dev
 
@@ -27,3 +30,8 @@ npm run dev
 
 ## test
 npm test
+
+## deploy
+npm install --production
+
+npm i egg-scripts --save

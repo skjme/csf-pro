@@ -9,13 +9,15 @@ module.exports = app => {
     router.resources('users', '/api/v1/users',  controller.v1.users);
     router.resources('users', '/users',  controller.users);
 
+    router.get('post-index ', '/post/index',  controller.post.index);
+    router.get('post-show ', '/post/:id', controller.post.show);
+    router.post('/post', controller.post.create);
+    router.put('/post/:id', controller.post.update);
+
     // router.get('/users', isLoginUser, hasAdminPermission, controller.user.index);
-    
-    // router.get('/news', controller.news.list);
-    // router.get('/news/:id', controller.news.detail);
 
     router.post('/form', controller.form.post);
-    router.post('/post', controller.post.create);
+
 
     router.get('s', '/search', middlewares.uppercase(), controller.search.index);
 

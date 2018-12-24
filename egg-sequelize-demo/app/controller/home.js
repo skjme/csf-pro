@@ -2,7 +2,7 @@ const Controller = require('egg').Controller;
 
 class HomeController extends Controller {
     async index() {
-      this.ctx.body = '<h1>Hello, Egg + Sequelize + MySQL</h1>';
+      this.ctx.body = '<h3>Hello, Egg + Sequelize + MySQL</h3>';
     }
   }
   

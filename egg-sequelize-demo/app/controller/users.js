@@ -14,7 +14,7 @@ class UserController extends Controller {
   }
 
   async index_bak() {
-    const { app, ctx, service, logger } = this;
+    // const { app, ctx, service, logger } = this;
 
     // // const ctx = this.ctx;
     // const sequelize = app.Sequelize;

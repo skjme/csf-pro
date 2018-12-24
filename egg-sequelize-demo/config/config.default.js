@@ -51,12 +51,10 @@ exports.sequelize = {
   // host: '192.168.1.9',
   username: 'test',
   password: 'test',
-  host: 'localhost',
+  // host: 'localhost',
   database: 'egg-sequelize-doc-unittest',
   // database: 'egg-sequelize-doc-default',
-  host: 'localhost',
-  // host: 'localhost',
-  // host: '192.168.1.9',
+  host: '192.168.1.9',
   port: 3306,
 };
 
@@ -72,6 +70,3 @@ exports.view = {
 // add news' configurations
 // exports.news = {
 //   pageSize: 5,
-//   //serverUrl: 'https://hacker-news.firebaseio.com/v0',
-//   serverUrl: 'http://192.168.1.41:9091',
-// };

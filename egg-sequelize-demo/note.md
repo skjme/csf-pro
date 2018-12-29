@@ -1,5 +1,11 @@
 ## https://eggjs.org/en/intro/quickstart.html
 
+mkdir egg-example
+
+$ cd egg-example
+
+npm init
+
 ## add egg 
 npm i egg --save
 

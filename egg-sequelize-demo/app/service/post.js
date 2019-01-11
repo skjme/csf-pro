@@ -8,8 +8,8 @@ class PostService extends Service {
        // const sequelize = app.Sequelize;
 
         const posts = await ctx.model.Post.findAll({
-            attributes: [ 'id', 'user_id' ],
-            include: { model: ctx.model.User, as: 'user' },
+            attributes: [ 'id', 'user_id1' ],
+            include: { model: ctx.model.User, as: 'user', foreignKey: 'user_id1', constraints: false },
             where: { status: 'publish' },
             order: [['id', 'DESC']],
           });

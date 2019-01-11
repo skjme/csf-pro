@@ -17,7 +17,8 @@ class UserService extends Service {
 
     // see http://docs.sequelizejs.com/manual/tutorial/querying.html
     let query = {
-        // attributes: [ 'name', 'age' ],
+        //attributes: [ 'id', 'name', 'age' ],
+        include: { model: ctx.model.Post, as: 'posts' },
         // limit: limit,
         // offset: offset,
         // where: { 

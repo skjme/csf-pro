@@ -11,14 +11,5 @@ module.exports = app => {
     updated_at: DATE,
   });
 
-  // one to many
-  User.associate = function() {
-    app.model.User.hasMany(app.model.Post, { as: 'posts', foreignKey: 'user_id1',
-    constraints: false,
-    scope:{
-      is_delete: 0
-    } });
-  }
-
   return User;
 };

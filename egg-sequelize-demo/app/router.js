@@ -9,6 +9,19 @@ module.exports = app => {
     router.resources('users', '/api/v1/users',  controller.v1.users);
     router.resources('users', '/users',  controller.users);
 
+    router.resources('mgr_channel', '/mgr/api/channel', controller.mgr.api.channel);
+    router.resources('mgr_trainee', '/mgr/api/trainee', controller.mgr.api.trainee);
+    router.resources('mgr_member', '/mgr/api/member', controller.mgr.api.member);
+    
+    router.get('/mgr/api/activityphase/getPhase', controller.mgr.api.activityphase.getPhase);
+    router.get('/mgr/api/activityphase/getNum', controller.mgr.api.activityphase.getNum);
+    router.get('/mgr/api/activityphase/getIndustry', controller.mgr.api.activityphase.getIndustry);
+    router.get('/mgr/api/activityphase/getProvince', controller.mgr.api.activityphase.getProvince);
+
+    //  登录
+    router.post('/api/login/account', controller.mgr.api.admin.login);
+    router.get('/api/currentUser/:id', controller.mgr.api.admin.currentUser);
+
     router.get('post-index ', '/post/index',  controller.post.index);
     router.get('post-show ', '/post/:id', controller.post.show);
     router.post('/post', controller.post.create);

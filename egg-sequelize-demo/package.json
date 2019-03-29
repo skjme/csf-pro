@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "first.js",
+  "egg": {
+    "declarations": true
+  },
   "scripts": {
     "start": "egg-scripts start --port=7001 --daemon --title=egg-server-demo",
     "stop": "egg-scripts stop",
@@ -24,7 +27,7 @@
     "sequelize": "^4.41.2"
   },
   "devDependencies": {
-    "egg-bin": "^4.9.0",
+    "egg-bin": "^4.12.1",
     "egg-mock": "^3.20.1",
     "factory-girl": "^5.0.4",
     "sequelize-cli": "^5.4.0"

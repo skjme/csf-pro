@@ -9,12 +9,15 @@ module.exports = app => {
     title: STRING(100),
     content: STRING(400),
     user_id: INTEGER,
-    created_at: { type: DATE, defaultValue: Sequelize.NOW },
-    updated_at: DATE,
+
+    // created_at: { type: DATE, defaultValue: Sequelize.NOW },
+    // updated_at: DATE,
+    
     is_delete: { type: BOOLEAN, defaultValue: 0 },
   },
   {
     tableName: 'demo_posts',
+    timestamps: true,
   }
   );
 

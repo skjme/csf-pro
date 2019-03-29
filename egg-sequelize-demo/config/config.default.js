@@ -56,6 +56,7 @@ exports.sequelize = {
   // database: 'egg-sequelize-doc-default',
   host: '192.168.1.9',
   port: 3306,
+  timezone: '+08:00' //东八时区
 };
 
 // add view's configurations

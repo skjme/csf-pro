@@ -5,7 +5,7 @@ module.exports = app => {
     router.redirect('/', '/home/index', 302);
 
     // RESTful 风格的 URL 定义
-    router.resources('posts', '/api/posts', controller.posts);
+    router.resources('post', '/api/post', controller.post);
     router.resources('users', '/api/v1/users',  controller.v1.users);
     router.resources('users', '/users',  controller.users);
 

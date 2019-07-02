@@ -14,6 +14,7 @@
         <module>rabbitmq</module>
         <module>mutilThread</module>
         <module>nio</module>
+        <module>sharding-jdbc-master-slave</module>
     </modules>
 
     <parent>

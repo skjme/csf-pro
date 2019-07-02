@@ -13,7 +13,7 @@
         <module>demo</module>
         <module>zk</module>
         <module>rabbitmq</module>
-        <module>mutilThread</module>
+        <module>mutil-thread</module>
         <module>nio</module>
         <module>sharding-jdbc-master-slave</module>
     </modules>

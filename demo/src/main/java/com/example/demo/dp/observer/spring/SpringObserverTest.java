@@ -16,6 +16,6 @@ public class SpringObserverTest {
 
     @Test
     public void test(){
-        orderService.saveOrder("chasehsu");
+        orderService.saveOrder("chaseshu");
     }
 }

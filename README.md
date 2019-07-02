@@ -28,7 +28,26 @@
     
     
 ### 开发测试工具
-
+    
+    IntelliJ IDEA
+    Visual Studio Code
+    Atom
+    
     Postman
+    Google Chrome
+    
+    SecureCRT
+    FileZilla
+    GitHub Desktop
+    
+    Sequel Pro
+    MySQL Workbench
+    Navicat Premuim
+    rdm
+    Robo 3T
+    
+    Youdao Note
+    
+    
 
 

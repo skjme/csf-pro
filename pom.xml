@@ -16,6 +16,7 @@
         <module>mutil-thread</module>
         <module>nio</module>
         <module>sharding-jdbc-master-slave</module>
+        <module>PMathematics</module>
     </modules>
 
     <properties>

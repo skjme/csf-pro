@@ -7,5 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.5",
+    "mongodb": "^3.3.2",
+    "mongoskin": "^2.1.0",
+    "underscore": "^1.9.1"
+  }
 }

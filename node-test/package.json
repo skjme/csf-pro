@@ -11,6 +11,7 @@
   "dependencies": {
     "async": "^3.1.0",
     "bluebird": "^3.5.5",
+    "ejs": "^2.7.1",
     "express": "^4.17.1",
     "mongodb": "^3.3.2",
     "mongoskin": "^2.1.0",

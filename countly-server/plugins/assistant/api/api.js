@@ -8,9 +8,9 @@ const _ = require('underscore');
 (function() {
     plugins.register("/master", function() {
         // Allow configs to load & scanner to find all jobs classes
-        setTimeout(() => {
-            require('../../../api/parts/jobs').job('assistant:generate').replace().schedule("every " + assistant.JOB_SCHEDULE_INTERVAL + " minutes starting on the 0 min");
-        }, 3000);
+        // setTimeout(() => {
+        //     require('../../../api/parts/jobs').job('assistant:generate').replace().schedule("every " + assistant.JOB_SCHEDULE_INTERVAL + " minutes starting on the 0 min");
+        // }, 3000);
     });
 
     plugins.register("/o/assistant", function(ob) {

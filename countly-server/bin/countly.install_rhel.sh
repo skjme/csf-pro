@@ -30,7 +30,6 @@ enabled=1" > /etc/yum.repos.d/nginx.repo
 else
     echo "Unsupported OS version, only support RHEL/Centos 7 and 6"
     exit 1
-fi
 
 #install nodejs
 curl -sL https://rpm.nodesource.com/setup_8.x | bash -

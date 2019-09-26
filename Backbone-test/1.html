@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>backbone.js-Hello World</title>
+</head>
+
+<body>
+
+    <button id="check">新⼿手报到</button>
+    <ul id="world-list"> </ul>
+
+
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js">
+    </script>
+    <script src="https://cdn.bootcss.com/underscore.js/1.9.1/underscore.js">
+    </script>
+    <script src="https://cdn.bootcss.com/backbone.js/1.4.0/backbone.js">
+    </script>
+    <script>
+        (function ($) {
+            World = Backbone.Model.extend({
+                //创建⼀一个World的对象，拥有name属性
+                name: null
+            });
+            Worlds = Backbone.Collection.extend({
+                 //World对象的集合
+                initialize: function (models, options) {
+                    this.bind("add", options.view.addOneWorld);
+                }
+            });
+            AppView = Backbone.View.extend({
+                el: $("body"),
+
+                initialize: function () { //构造函数，实例例化⼀一个World集合类 //并且以字典⽅方式传⼊入AppView的对象
+                    this.worlds = new Worlds(null, { view: this })
+                }, 
+                
+                events: {
+                    //事件绑定，绑定Dom中id为check的元素
+                    "click #check": "checkIn",
+                },
+
+                checkIn: function () {
+                    var world_name = prompt("请问，您是哪星⼈人?"); 
+                    if (!world_name){
+                        world_name = '未知'; 
+                    }
+                    
+                    var world = new World({ name: world_name }); 
+                    this.worlds.add(world);
+                },
+
+                addOneWorld: function (model) {
+                    $("#world-list").append("<li>这⾥里里是来⾃自 <b>" + model.get('name') + "</b> 星球的问候:hello world!</li>");
+                }
+            });
+            //实例例化AppView
+            var appview = new AppView;
+
+        })(jQuery);
+    </script>
+</body>
+
+</html>

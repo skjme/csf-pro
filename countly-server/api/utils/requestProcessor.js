@@ -1974,7 +1974,7 @@ const processRequestData = (params, app, done) => {
             else {
                 countlyApi.data.events.processEvents(params);
             }
-        }
+        }// 增加修改用户详细资料
         else if(params.qstring.user_details){
             countlyApi.mgmt.appUsers.updateUserDetail(params);
         }

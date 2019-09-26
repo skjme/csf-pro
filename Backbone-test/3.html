@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Backbonejs中的Collections实践</title>
+</head>
+<body>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"> </script>
+<script src="https://cdn.bootcss.com/underscore.js/1.9.1/underscore.js"> </script>
+<script src="https://cdn.bootcss.com/backbone.js/1.4.0/backbone.js"> </script>
+<script>
+    (function ($) {
+
+        var Book = Backbone.Model.extend({
+            defaults: {
+                title: 'default',
+            },
+
+            initialize: function(){
+
+            }
+
+        });
+
+        var BookShelf = Backbone.Collection.extend({
+            model: Book,
+        });
+
+        var book1 = new Book({title:'book1'})
+        var book2 = new Book({title:'book2'})
+        var book3 = new Book({title:'book3'})
+
+        var bookShelf = new BookShelf([book1, book2, book3]);
+
+        console.log(bookShelf);
+
+        // var bookShelf = new BookShelf;
+        // bookShelf.add(book1);
+        // bookShelf.add(book2);
+        // bookShelf.add(book3);
+        // bookShelf.remove(book3);
+ 
+        bookShelf.each(function(book){
+            console.log(book.get('title'))
+        });
+
+        // 使⽤用fetch从服务器器端获取数据
+        bookShelf.url = '/books/'; 
+        bookShelf.fetch({
+            success:function(collection, response, options){
+                collection.each(function(book){
+                    console.log(book.get('title'));
+                });
+            },error:function(collection, response, options){
+                console.log('error', response.status, response.responseText);
+        } });
+
+
+        // 发送数据到Server端
+        var NewBooks = Backbone.Collection.extend({
+            model: Book,
+            url: '/books/'
+        });
+        var books = new NewBooks;
+        var onebook = books.create({
+            title: "I'm coming",
+        });
+
+
+
+
+    })(jQuery);
+</script>
+</html>

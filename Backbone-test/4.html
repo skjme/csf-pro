@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Backbonejs中的Router实践</title>
+</head>
+<body>
+        <a href="#actions">testActions</a>
+        <a href="#/posts/120">Post 120</a>
+        <a href="#/manual">manual</a>
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"> </script>
+<script src="https://cdn.bootcss.com/underscore.js/1.9.1/underscore.js"> </script>
+<script src="https://cdn.bootcss.com/backbone.js/1.4.0/backbone.js"> </script>
+<script>
+    (function ($) {
+
+        var AppRouter = Backbone.Router.extend({
+            routes: {
+                "posts/:id": 'getPost',
+                //下⾯面对应的链接为<a href="#/download/user/images/hey.gif">download gif</a> 
+                "download/*path": "downloadFile",
+                //下⾯面对应的链接为<a href="#/dashboard/graph">Load Route/Action View</a> 
+                ":route/:action": "loadView",
+                "manual": "manual", // ⼿手动触发router
+                "*actions" : "defaultRoute"
+            },
+
+            getPost: function(id){
+                console.log('id', id);
+            },
+
+            defaultRoute : function(actions){
+                console.log('actions', actions);
+            },
+            
+            downloadFile: function( path ){
+                alert(path); // user/images/hey.gif
+            },
+
+            loadView: function( route, action ){
+                alert(route + "_" + action); // dashboard_graph
+            },
+
+            manual: function() {
+                alert("call manual");
+                app_router.navigate("/posts/" + 404, {trigger: true, replace: true});
+            }
+        });
+
+        var app_router = new AppRouter;
+        Backbone.history.start();
+
+    })(jQuery);
+</script>
+</html>

@@ -664,8 +664,8 @@ if ('development' === env) {
 }
 
 app.get(countlyConfig.path + '/', function(req, res) {
-    res.redirect(countlyConfig.path + '/login');
-});
+        res.redirect(countlyConfig.path + '/login');
+    });
 
 var extendSession = function(req) {
     membersUtility.extendSession(req);

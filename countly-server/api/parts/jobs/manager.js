@@ -11,7 +11,7 @@ const JOB = require('./job.js'),
     manager = require('../../../plugins/pluginManager.js'),
     later = require('later');
 
-const DELAY_BETWEEN_CHECKS = 1000,
+const DELAY_BETWEEN_CHECKS = 1000*100, // 间隔时间默认1000毫秒
     MAXIMUM_IN_LINE_JOBS_PER_NAME = 10;
 
 /**
@@ -30,7 +30,9 @@ class Manager {
         this.files = {}; // {'ping': '/usr/local/countly/api/jobs/ping.js'}
         this.processes = {}; // {job1Id: [fork1, fork2], job2Id: [fork3, fork4], job3Id: []}     job3 is small and being run on this process, job1/2 are IPC ones
         this.running = {}; // {'push:apn:connection': [resource1, resource2], 'xxx': [resource3]}
-        this.resources
+        this.resources = []; // {'push:apn:connection': [job1, job2]}
+        // Once job is done running (goes out of running), if it's resourceful job, it goes into resources until resource is closed or another job of this type is being run
+
         this.db = manager.singleDefaultConnection();
         // JOB.setDB(this.db);
         this.collection = this.db.collection('jobs');

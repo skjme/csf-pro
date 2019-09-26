@@ -1101,6 +1101,9 @@ fetch.fetchDataTopEvents = function(params) {
     const collectionName = "top_events";
     const _app_id = common.db.ObjectID(app_id);
     common.db.collection(collectionName).findOne({period, app_id: _app_id}, function(error, result) {
+            console.log("------------top_events-----------------------");
+            console.log("error", error);
+            console.log("result", result);
         if (error || !result) {
             common.returnOutput(params, false);
         }

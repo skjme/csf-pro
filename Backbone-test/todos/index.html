@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Backbonejs中的综合实战todos</title>
+  <link rel="stylesheet" href="todos.css" />
+</head>
+
+<body>
+
+  <div id="todoapp">
+
+    <header>
+      <h1>Todos</h1>
+      <input id="new-todo" type="text" placeholder="What needs to be done?">
+    </header>
+
+    <section id="main">
+      <input id="toggle-all" type="checkbox">
+      <label for="toggle-all">Mark all as complete</label>
+      <ul id="todo-list"></ul>
+    </section>
+
+    <footer>
+      <a id="clear-completed">Clear completed</a>
+      <div id="todo-count"></div>
+    </footer>
+
+  </div>
+
+  <div id="instructions">
+    Double-click to edit a todo.
+  </div>
+
+  <!-- Templates -->
+
+  <script type="text/template" id="item-template">
+    <div class="view">
+      <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
+      <label><%- title %></label>
+      <a class="destroy"></a>
+    </div>
+    <input class="edit" type="text" value="<%- title %>" />
+  </script>
+
+  <script type="text/template" id="stats-template">
+    <% if (done) { %>
+      <a id="clear-completed">Clear <%= done %> completed <%= done == 1 ? 'item' : 'items' %></a>
+    <% } %>
+    <div class="todo-count"><b><%= remaining %></b> <%= remaining == 1 ? 'item' : 'items' %> left</div>
+  </script>
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"> </script>
+<script src="https://cdn.bootcss.com/underscore.js/1.9.1/underscore.js"> </script>
+<script src="https://cdn.bootcss.com/backbone.js/1.4.0/backbone.js"> </script>
+<script src="../backbone.localStorage.js"></script>
+<!-- <script src="todos.js"></script> -->
+<script>
+ // Load the application once the DOM is ready, using `jQuery.ready`:
+$(function(){
+
+  // Todo Model
+  // ----------
+
+    /** *基本的Todo模型，属性为:title,order,done。 **/
+    var Todo = Backbone.Model.extend({
+      // 设置默认的属性 
+      defaults: {
+        title: "empty todo...",
+        order: Todos.nextOrder(),
+        done: false
+      },
+      // 设置任务完成状态 
+      toggle: function () {
+        this.save({ done: !this.get("done") });
+      }
+    });
+
+
+    // Todo Collection
+    // ---------------
+
+    /** *Todo的⼀一个集合，数据通过localStorage存储在本地。 **/
+    var TodoList = Backbone.Collection.extend({
+      // 设置Collection的模型为Todo 
+      model: Todo,
+
+      //存储到浏览器器，以todos-backbone命名的空间中 
+      //此函数为Backbone插件提供 
+      //地址:https://github.com/jeromegn/Backbone.localStorage 
+      localStorage: new Backbone.LocalStorage("todos-backbone"),
+
+      //获取所有已经完成的任务数组 
+      done: function () {
+        return this.where({ done: true });
+      },
+
+      //获取任务列列表中未完成的任务数组 
+      //这⾥里里的where在之前是没有的，但是语法上更更清晰了了 //参考⽂文档:http://backbonejs.org/#Collection-where 
+      remaining: function () {
+        return this.where({ done: false });
+      },
+
+      //获得下⼀一个任务的排序序号，通过数据库中的记录数加1实现。 
+      nextOrder: function () {
+        if (!this.length) return 1;
+        // last获取collection中最后⼀一个元素
+        return this.last().get('order') + 1;
+      },
+
+      //Backbone内置属性，指明collection的排序规则。
+      comparator: 'order'
+    });
+
+    // ⾸首先是创建⼀一个全局的Todo的collection对象 
+    var Todos = new TodoList;
+    console.log('Todos.next()', Todos.nextOrder());
+    
+
+
+  // Todo Item View
+  // --------------
+
+    // 先来看TodoView，作⽤用是控制任务列列表 
+    var TodoView = Backbone.View.extend({
+      //下⾯面这个标签的作⽤用是，把template模板中获取到的html代码放到这标签中。 
+      tagName: "li",
+      // 获取⼀一个任务条⽬目的模板,缓存到这个属性上。 
+      template: _.template($('#item-template').html()),
+      // 为每⼀一个任务条⽬目绑定事件 
+      events: {
+        "click .toggle": "toggleDone",
+        "dblclick .view": "edit",
+        "click a.destroy": "clear",
+        "keypress .edit": "updateOnEnter",
+        "blur .edit": "close"
+      },
+      //在初始化时设置对model的change事件的监听 //设置对model的destroy的监听，保证⻚页⾯面数据和model数据⼀一致 
+      initialize: function () {
+        this.listenTo(this.model, 'change', this.render); //这个remove是view的中的⽅方法，⽤用来清除⻚页⾯面中的dom this.listenTo(this.model, 'destroy', this.remove);
+      },
+      // 渲染todo中的数据到 item-template 中，然后返回对⾃自⼰己的引⽤用this 
+      render: function () {
+        this.$el.html(this.template(this.model.toJSON()));
+        this.$el.toggleClass('done', this.model.get('done'));
+        this.input = this.$('.edit');
+        return this;
+      },
+      // 控制任务完成或者未完成 
+      toggleDone: function () {
+        this.model.toggle();
+      },
+      // 修改任务条⽬目的样式 
+      edit: function () {
+        $(this.el).addClass("editing");
+        this.input.focus();
+      },
+      // 关闭编辑模式，并把修改内容同步到Model和界⾯面 
+      close: function () {
+        var value = this.input.val();
+        if (!value) {
+          //⽆无值内容直接从⻚页⾯面清除
+          this.clear();
+        } else {
+          this.model.save({ title: value });
+          this.$el.removeClass("editing");
+        }
+      },
+      // 按下回⻋车之后，关闭编辑模式 
+      updateOnEnter: function (e) {
+        if (e.keyCode == 13) this.close();
+      },
+      // 移除对应条⽬目，以及对应的数据对象 
+      clear: function () {
+        this.model.destroy();
+      }
+    });
+
+     // The Application
+    // ---------------
+
+    // Our overall **AppView** is the top-level piece of UI.
+    var AppView = Backbone.View.extend({
+
+    // Instead of generating a new element, bind to the existing skeleton of
+    // the App already present in the HTML.
+    el: $("#todoapp"),
+
+    // Our template for the line of statistics at the bottom of the app.
+    statsTemplate: _.template($('#stats-template').html()),
+
+    // Delegated events for creating new items, and clearing completed ones.
+    events: {
+      "keypress #new-todo":  "createOnEnter",
+      "click #clear-completed": "clearCompleted",
+      "click #toggle-all": "toggleAllComplete"
+    },
+
+    // At initialization we bind to the relevant events on the `Todos`
+    // collection, when items are added or changed. Kick things off by
+    // loading any preexisting todos that might be saved in *localStorage*.
+    initialize: function() {
+
+      this.input = this.$("#new-todo");
+      this.allCheckbox = this.$("#toggle-all")[0];
+
+      this.listenTo(Todos, 'add', this.addOne);
+      this.listenTo(Todos, 'reset', this.addAll);
+      this.listenTo(Todos, 'all', this.render);
+
+      this.footer = this.$('footer');
+      this.main = $('#main');
+
+      Todos.fetch();
+    },
+
+    // Re-rendering the App just means refreshing the statistics -- the rest
+    // of the app doesn't change.
+    render: function() {
+      var done = Todos.done().length;
+      var remaining = Todos.remaining().length;
+
+      if (Todos.length) {
+        this.main.show();
+        this.footer.show();
+        this.footer.html(this.statsTemplate({done: done, remaining: remaining}));
+      } else {
+        this.main.hide();
+        this.footer.hide();
+      }
+
+      this.allCheckbox.checked = !remaining;
+    },
+
+    // Add a single todo item to the list by creating a view for it, and
+    // appending its element to the `<ul>`.
+    addOne: function(todo) {
+      var view = new TodoView({model: todo});
+      this.$("#todo-list").append(view.render().el);
+    },
+
+    // Add all items in the **Todos** collection at once.
+    addAll: function() {
+      Todos.each(this.addOne, this);
+    },
+
+    // If you hit return in the main input field, create new **Todo** model,
+    // persisting it to *localStorage*.
+    createOnEnter: function(e) {
+      if (e.keyCode != 13) return;
+      if (!this.input.val()) return;
+
+      Todos.create({title: this.input.val()});
+      this.input.val('');
+    },
+
+    // Clear all done todo items, destroying their models.
+    clearCompleted: function() {
+      _.invoke(Todos.done(), 'destroy');
+      return false;
+    },
+
+    toggleAllComplete: function () {
+      var done = this.allCheckbox.checked;
+      Todos.each(function (todo) { todo.save({'done': done}); });
+    }
+
+    });
+
+    // Finally, we kick things off by creating the **App**.
+    var App = new AppView;
+
+  });
+</script>
+
+</html>

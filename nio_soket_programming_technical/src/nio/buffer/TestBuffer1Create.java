@@ -8,7 +8,7 @@ import java.nio.ByteBuffer;
  * @since 2020.01.22
  *
  */
-public class TestBufferCreate {
+public class TestBuffer1Create {
 
 	public static void main(String[] args) {
 		

@@ -2,7 +2,7 @@ package nio.buffer;
 
 import java.nio.CharBuffer;
 
-public class TestBufferLimit {
+public class TestBuffer2Limit {
 
 	public static void main(String[] args) {
 		// 2 limit 限制获取与设置

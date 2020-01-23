@@ -7,7 +7,7 @@
     <artifactId>multi-thread</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>multi-thread</name>
+    <name>multiThread</name>
 
 	
 	<parent>

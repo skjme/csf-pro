@@ -29,5 +29,10 @@ public class TestSlice {
         }
         System.out.println();
 
+        buffer.position(5);
+        ByteBuffer bb3 = buffer.slice();
+        System.out.println(bb3.arrayOffset());
+
+
     }
 }

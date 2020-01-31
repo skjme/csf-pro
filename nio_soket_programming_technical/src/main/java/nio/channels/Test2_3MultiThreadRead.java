@@ -12,7 +12,7 @@ import java.util.Collections;
 /**
  * 使用多线程同时对FileChannel通道进行读取，验证Read方法具有同步特性
  */
-public class Test2MutilThread {
+public class Test2_3MultiThreadRead {
 
     private static FileOutputStream fosRef;
     private static FileChannel fileChannel;
@@ -45,7 +45,7 @@ public class Test2MutilThread {
     public static void main(String[] args) throws IOException, InterruptedException {
 
         // 生成测试数据
-        //  genTestData();
+          genTestData();
 
         // 读取数据，验证read方法具有同步特性
         fisRef = new FileInputStream(new File("/Users/ask123/OpenSourceCode/csf-pro/" +

@@ -9,7 +9,7 @@ import java.nio.channels.FileChannel;
 /**
  * 使用多线程同时对FileChannel通道进行写入，验证write方法具有同步特性
  */
-public class Test1_2 {
+public class Test1_2MultiWrite {
 
     private static FileOutputStream fosRef;
     private static FileChannel fileChannel;

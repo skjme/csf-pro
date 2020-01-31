@@ -14,8 +14,8 @@ public class Test3_1 {
 
     public static void main(String[] args) throws Exception {
 
-//        test();
-        multiThreadWrite();
+        test();
+//        multiThreadWrite();
 
     }
 
@@ -42,13 +42,14 @@ public class Test3_1 {
         ByteBuffer[] bufferArray = new ByteBuffer[]{byteBuffer1, byteBuffer2};
 
         // 验证write(ByteBuffer[] srcs)方法将ByteBuffer的remaining写入通道
-        byteBuffer1.position(1);
-        byteBuffer1.limit(3); // bc
+//        byteBuffer1.position(1);
+//        byteBuffer1.limit(3); // bc
+//
+//        byteBuffer2.position(2);
+//        byteBuffer2.limit(4); // wx
 
-        byteBuffer2.position(2);
-        byteBuffer2.limit(4); // wx
-
-        fileChannel.write(bufferArray);
+//        fileChannel.write(bufferArray);
+        fileChannel.write(bufferArray, 1, 1); // offset第一个缓冲区在数组的偏移量（索引）、length要访问的最大缓冲区数量
 
         fileChannel.close();
         fosRef.close();

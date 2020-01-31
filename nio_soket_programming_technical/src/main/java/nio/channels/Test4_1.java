@@ -4,7 +4,6 @@ import sun.security.x509.FreshestCRLExtension;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
@@ -18,8 +17,8 @@ public class Test4_1 {
     private static FileChannel fileChannel;
 
     public static void main(String[] args) throws Exception {
-//        testRead();
-        multiThreadRead();
+        testRead();
+//        multiThreadRead();
     }
 
     public static void testRead() throws Exception{
@@ -35,7 +34,8 @@ public class Test4_1 {
 
 //        byteBuffer1.position(1); // 放入ByteBuffer的当前位置
 
-        long readLength = fileChannel.read(bufferArray);
+//        long readLength = fileChannel.read(bufferArray);
+        long readLength = fileChannel.read(bufferArray, 0, 1); // offset第一个要访问的缓冲区在数组的索引、length要访问的缓冲区的数量
         System.out.println(readLength);
         byteBuffer1.clear();
         byteBuffer2.clear();

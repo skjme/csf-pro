@@ -10,7 +10,7 @@ public class Test6 {
     public static void main(String[] args) {
 
         ByteBuffer byteBuffer = ByteBuffer.allocate(100);
-        byteBuffer.putChar('a'); // 0-1, char占个字节
+        byteBuffer.putChar('a'); // 0-1, char占2个字节
         byteBuffer.putChar(2, 'b');
 
         System.out.println(byteBuffer);

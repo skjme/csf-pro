@@ -4,10 +4,10 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>cn.chaseshu</groupId>
-    <artifactId>nio_soket_programming_technical</artifactId>
+    <artifactId>nio_socket_programming_technical</artifactId>
     <version>0.0.1</version>
 
-    <name>nio_soket_programming_technical</name>
+    <name>nio_socket_programming_technical</name>
 
 	
 	<parent>

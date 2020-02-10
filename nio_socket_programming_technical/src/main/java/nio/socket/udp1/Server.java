@@ -8,7 +8,7 @@ import java.net.SocketException;
 public class Server {
 
     public static void main(String[] args) throws IOException {
-        DatagramSocket serverSocket = new DatagramSocket(88888);
+        DatagramSocket serverSocket = new DatagramSocket(8888);
 
         byte[] bytes = new byte[12];
         DatagramPacket packet = new DatagramPacket(bytes, 10);

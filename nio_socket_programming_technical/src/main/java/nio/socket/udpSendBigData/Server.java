@@ -11,6 +11,8 @@ public class Server {
         DatagramSocket serverSocket = new DatagramSocket(8888);
 
         byte[] bytes = new byte[65507];
+//        byte[] bytes = new byte[60000];
+//        DatagramPacket packet = new DatagramPacket(bytes, 60000);
         DatagramPacket packet = new DatagramPacket(bytes, bytes.length);
 
         serverSocket.receive(packet);

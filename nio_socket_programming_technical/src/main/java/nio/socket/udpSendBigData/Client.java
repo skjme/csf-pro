@@ -14,6 +14,7 @@ public class Client {
         clientSocket.connect(new InetSocketAddress("localhost", 8888));
         String newString = "";
         for(int i = 0; i < 65507 -3; i++){
+//        for(int i = 0; i < 60000; i++){
             newString = newString + "a";
         }
         newString = newString +"end";

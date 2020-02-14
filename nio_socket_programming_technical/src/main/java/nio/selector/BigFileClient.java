@@ -1,8 +1,5 @@
 package nio.selector;
 
-
-import com.sun.org.apache.xpath.internal.operations.String;
-
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;

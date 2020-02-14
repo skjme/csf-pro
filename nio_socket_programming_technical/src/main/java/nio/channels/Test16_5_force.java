@@ -14,6 +14,10 @@ public class Test16_5_force {
     public static void main(String[] args) throws IOException {
 
         File file = new File("/Users/ask123/Desktop/a.txt"); // abcdefg
+        File dir = new File("/Users/ask123/Desktop/");
+        if(!dir.exists()){
+            dir.mkdirs();
+        }
         RandomAccessFile fileA = new RandomAccessFile(file, "rw");
         FileChannel fileChannel = fileA.getChannel();
         MappedByteBuffer mappedByteBuffer = fileChannel.map(FileChannel.MapMode.READ_WRITE, 0, 100);

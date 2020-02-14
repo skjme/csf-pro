@@ -15,7 +15,8 @@ public class BigFileServer {
 
         ServerSocketChannel channel = ServerSocketChannel.open();
         channel.configureBlocking(false);
-        channel.bind(new InetSocketAddress("localhost", 8088));
+//        channel.bind(new InetSocketAddress("localhost", 8088));
+        channel.bind(new InetSocketAddress("192.168.1.148", 8088));
 
         Selector selector = Selector.open();
         channel.register(selector, SelectionKey.OP_ACCEPT);

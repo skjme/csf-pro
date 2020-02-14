@@ -13,7 +13,7 @@ public class Test13_4 {
     public static void main(String[] args) throws IOException, InterruptedException {
 
         FileOutputStream fileA = new FileOutputStream("/Users/ask123/Desktop/a.txt");
-        FileChannel fileChannelA = fileA.getChannel();
+        final FileChannel fileChannelA = fileA.getChannel();
 
         Thread a = new Thread(){
             @Override

@@ -12,7 +12,7 @@ public class TestBuffer16 {
         ByteBuffer buffer2 = ByteBuffer.wrap(new byte[]{ 'x', 'y', 'z'});
         ByteBuffer buffer3 = ByteBuffer.wrap(new byte[]{ '1', '2', '3'});
 
-        List<ByteBuffer> list = new ArrayList<>();
+        List<ByteBuffer> list = new ArrayList<ByteBuffer>();
         list.add(buffer1);
         list.add(buffer2);
         list.add(buffer3);

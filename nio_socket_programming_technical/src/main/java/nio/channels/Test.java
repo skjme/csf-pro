@@ -13,11 +13,11 @@ public class Test {
     }
     public static void main(String[] args) {
 
-        try (DBOperate dbOperate = new DBOperate()){
-            System.out.println(dbOperate);
-        }catch (Exception ex){
-            ex.printStackTrace();
-        }
+//        try (DBOperate dbOperate = new DBOperate()){
+//            System.out.println(dbOperate);
+//        }catch (Exception ex){
+//            ex.printStackTrace();
+//        }
 
 //        Channel
     }

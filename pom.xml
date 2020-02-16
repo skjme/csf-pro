@@ -18,6 +18,7 @@
         <module>sharding-jdbc-master-slave</module>
         <module>PMathematics</module>
         <module>nio_socket_programming_technical</module>
+        <module>multi-thread-programming</module>
     </modules>
 
     <properties>

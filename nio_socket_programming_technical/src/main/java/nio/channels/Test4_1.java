@@ -1,7 +1,5 @@
 package nio.channels;
 
-import sun.security.x509.FreshestCRLExtension;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;

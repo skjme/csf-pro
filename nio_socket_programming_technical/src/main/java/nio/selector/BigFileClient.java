@@ -45,6 +45,7 @@ public class BigFileClient {
                         while (readLength != -1){
                             count = count + readLength;
                             System.out.println("count=" + count + " readLength=" + readLength);
+                            System.out.println(new String(byteBuffer.array(), 0, readLength));
                             readLength = channel.read(byteBuffer);
                             byteBuffer.clear();
                         }

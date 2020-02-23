@@ -7,6 +7,7 @@ public class Run {
         P p = new P(lock);
         C c = new C(lock);
 
+
         ThreadP[] pThread = new ThreadP[2];
         ThreadC[] cThread = new ThreadC[2];
         for(int i = 0; i < pThread.length; i++){

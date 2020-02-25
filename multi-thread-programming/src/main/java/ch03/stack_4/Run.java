@@ -1,10 +1,13 @@
 package ch03.stack_4;
 
+import java.util.concurrent.locks.Lock;
+
 public class Run {
 
     // 多个生成、多个消费
     public static void main(String[] args) {
 
+//        Lock
         MyStack myStack = new MyStack();
         P p1 = new P(myStack);
         P p2 = new P(myStack);

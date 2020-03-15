@@ -7,4 +7,3 @@ if guess == number:
     print("22")
 else:
     print("no")
-

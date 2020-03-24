@@ -34,3 +34,4 @@
 */run/
 helloworld_py/venv/
 hello_c/cmake-build-debug/
+*.out

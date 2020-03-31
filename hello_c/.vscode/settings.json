@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "inet.h": "c",
+        "types.h": "c",
+        "_types.h": "c",
+        "apue.h": "c",
+        "hellomake.h": "c"
+    }
+}

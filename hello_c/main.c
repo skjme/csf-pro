@@ -23,10 +23,10 @@
  */
 int main(int argc, char **argv) {
 
-//    fork1();
+    fork1();
 //    test_stdio();
 
-    mycpy(argc, argv);
+//    mycpy(argc, argv);
 
     return 0;
 }

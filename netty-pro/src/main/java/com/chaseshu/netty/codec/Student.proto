@@ -1,0 +1,12 @@
+syntax = "proto3";
+option java_outer_classname = "StudentPOJO";
+
+message Student{
+
+    int32 id = 1;
+    string name = 2;
+
+}
+
+
+// protoc  --java_out=. Student.proto

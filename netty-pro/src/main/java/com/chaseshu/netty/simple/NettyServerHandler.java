@@ -15,6 +15,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 //        super.channelRead(ctx, msg);
+        System.out.println("===");
         System.out.println("服务器读取线程 " + Thread.currentThread().getName());
         System.out.println("server ctx = " + ctx);
         ByteBuf byteBuf = (ByteBuf)msg;

@@ -4,6 +4,7 @@
         "types.h": "c",
         "_types.h": "c",
         "apue.h": "c",
-        "hellomake.h": "c"
+        "hellomake.h": "c",
+        "in.h": "c"
     }
 }

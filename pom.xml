@@ -20,6 +20,8 @@
         <module>nio_socket_programming_technical</module>
         <module>multi-thread-programming</module>
         <module>netty-pro</module>
+        <module>thinking-in-spring</module>
+        <module>cglib</module>
     </modules>
 
     <properties>

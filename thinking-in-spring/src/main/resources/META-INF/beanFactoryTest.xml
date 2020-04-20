@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="myTestBean" class="cn.chaseshu.bean.MyTestBean"></bean>
+    <bean id="myTestBean2" class="cn.chaseshu.bean.MyTestBean"></bean>
+
+    <bean id="zhangsan" class="cn.chaseshu.aware.beannameaware.User">
+        <property name="name" value="张三"/>
+        <property name="address" value="地球"/>
+    </bean>
+
+    <bean id="lisi" class="cn.chaseshu.aware.beannameaware.User2">
+        <property name="name" value="李思"/>
+        <property name="address" value="月球"/>
+    </bean>
+    <bean id="myContext" class="cn.chaseshu.aware.applicationcontextaware.MyApplicationContext" />
+
+</beans>

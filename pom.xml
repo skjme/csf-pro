@@ -53,7 +53,7 @@
         <module>nacos-test-discovery</module>
         <module>nacos-test-consumer</module>
         <module>java14-test</module>
-        <module>thinking-in-springboot2</module>
+        <module>thinking-in-springboot</module>
     </modules>
 
     <properties>

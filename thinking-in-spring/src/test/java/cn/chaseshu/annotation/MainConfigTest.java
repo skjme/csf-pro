@@ -2,6 +2,7 @@ package cn.chaseshu.annotation;
 
 import cn.chaseshu.annotation.config.MainConfig;
 import cn.chaseshu.bean.MyTestBean;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

@@ -1,4 +1,4 @@
-package cn.chaseshu.enable;
+package cn.chaseshu.enable.test1;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

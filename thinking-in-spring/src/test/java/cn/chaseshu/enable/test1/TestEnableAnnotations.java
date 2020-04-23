@@ -1,5 +1,6 @@
-package cn.chaseshu.enable;
+package cn.chaseshu.enable.test1;
 
+import cn.chaseshu.enable.test1.EnableSomeBeans;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

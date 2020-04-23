@@ -1,7 +1,9 @@
 package cn.chaseshu.enable.helloworld;
 
+import lombok.extern.java.Log;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+@Log
 @EnableHelloWorld
 public class EnableHelloWorldBootstrap {
 
@@ -12,7 +14,7 @@ public class EnableHelloWorldBootstrap {
         context.refresh();
 
         String helloworld = context.getBean("helloWorld", String.class);
-        System.out.println(helloworld);
+        log.info(helloworld);
 
     }
 }

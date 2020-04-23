@@ -16,6 +16,7 @@
         <property name="name" value="李思"/>
         <property name="address" value="月球"/>
     </bean>
+
     <bean id="myContext" class="cn.chaseshu.aware.applicationcontextaware.MyApplicationContext" />
 
 </beans>

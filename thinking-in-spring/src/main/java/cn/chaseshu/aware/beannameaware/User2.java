@@ -1,7 +1,5 @@
 package cn.chaseshu.aware.beannameaware;
 
-import org.springframework.beans.factory.BeanNameAware;
-
 public class User2 {
 
     private String id;

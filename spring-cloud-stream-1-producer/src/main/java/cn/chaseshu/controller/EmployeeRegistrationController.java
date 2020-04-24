@@ -32,6 +32,7 @@ public class EmployeeRegistrationController {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+                    employee.setEmpID("emp-"+v);
                     employeeRegistrationSource.employeeRegistration().send(MessageBuilder.withPayload(employee).build());
                 }
         );

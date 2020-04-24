@@ -56,6 +56,7 @@
         <module>thinking-in-springboot</module>
         <module>spring-cloud-stream-1-producer</module>
         <module>spring-cloud-stream-2-consumer</module>
+        <module>spring-cloud-stream-3-consumer</module>
     </modules>
 
     <properties>

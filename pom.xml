@@ -54,6 +54,8 @@
         <module>nacos-test-consumer</module>
         <module>java14-test</module>
         <module>thinking-in-springboot</module>
+        <module>spring-cloud-stream-1-producer</module>
+        <module>spring-cloud-stream-2-consumer</module>
     </modules>
 
     <properties>

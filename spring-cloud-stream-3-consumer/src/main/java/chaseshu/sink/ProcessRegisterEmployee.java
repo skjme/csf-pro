@@ -1,4 +1,4 @@
-package cn.chaseshu.slink;
+package chaseshu.sink;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.stream.annotation.EnableBinding;

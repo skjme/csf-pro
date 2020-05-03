@@ -57,6 +57,8 @@
         <module>spring-cloud-stream-1-producer</module>
         <module>spring-cloud-stream-2-consumer</module>
         <module>spring-cloud-stream-3-consumer</module>
+        <module>kafka-test1</module>
+        <module>rocketmq-test1</module>
     </modules>
 
     <properties>

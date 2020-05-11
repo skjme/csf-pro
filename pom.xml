@@ -59,6 +59,8 @@
         <module>spring-cloud-stream-3-consumer</module>
         <module>kafka-test1</module>
         <module>rocketmq-test1</module>
+        <module>j2cache-test1</module>
+        <module>activemq-test1</module>
     </modules>
 
     <properties>

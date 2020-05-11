@@ -6,6 +6,7 @@ import org.apache.rocketmq.remoting.common.RemotingHelper;
 
 /**
  * Send Messages in One-way Mode
+ *  无返回
  */
 public class OnewayProducer {
     public static void main(String[] args) throws Exception{

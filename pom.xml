@@ -3,26 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
 
     <parent>
         <groupId>org.springframework.cloud</groupId>
@@ -37,32 +17,43 @@
     <version>1.0</version>
 
     <modules>
-        <module>demo</module>
-        <module>zk</module>
-        <module>rabbitmq</module>
+<!--        <module>demo</module>-->
+<!--        <module>zk</module>-->
+<!--        <module>rabbitmq</module>-->
         <!--        <module>multiThread</module>-->
         <!--        <module>nio</module>-->
         <!--        <module>sharding-jdbc-master-slave</module>-->
-        <module>PMathematics</module>
-<!--        <module>nio_socket_programming_technical</module>-->
-        <module>multi-thread-programming</module>
-        <module>netty-pro</module>
-        <module>thinking-in-spring</module>
-        <module>cglib</module>
+<!--        <module>PMathematics</module>-->
+        <!--        <module>nio_socket_programming_technical</module>-->
+<!--        <module>multi-thread-programming</module>-->
+<!--        <module>netty-pro</module>-->
+<!--        <module>thinking-in-spring</module>-->
+<!--        <module>cglib</module>-->
         <module>nacos-test-config</module>
         <module>nacos-test-discovery</module>
         <module>nacos-test-consumer</module>
-        <module>java14-test</module>
-        <module>thinking-in-springboot</module>
-        <module>spring-cloud-stream-1-producer</module>
-        <module>spring-cloud-stream-2-consumer</module>
-        <module>spring-cloud-stream-3-consumer</module>
-        <module>kafka-test1</module>
-        <module>rocketmq-test1</module>
-        <module>j2cache-test1</module>
-        <module>activemq-test1</module>
-        <module>Memcached-Java-Client</module>
-        <module>graphql-test</module>
+        <!--        <module>java14-test</module>-->
+<!--        <module>thinking-in-springboot</module>-->
+<!--        <module>spring-cloud-stream-1-producer</module>-->
+<!--        <module>spring-cloud-stream-2-consumer</module>-->
+<!--        <module>spring-cloud-stream-3-consumer</module>-->
+<!--        <module>kafka-test1</module>-->
+<!--        <module>rocketmq-test1</module>-->
+<!--        <module>j2cache-test1</module>-->
+<!--        <module>activemq-test1</module>-->
+<!--        <module>Memcached-Java-Client</module>-->
+<!--        <module>graphql-test</module>-->
+<!--        <module>shardingsphere-test01</module>-->
+
+        <module>Sentinel-test1</module>
+
+        <module>nacos-feign-svc</module>
+        <module>nacos-feign-api</module>
+        <module>nacos-common-lib</module>
+        <module>nacos-app</module>
+        <module>Rest-Client-1-CXF</module>
+        <module>Rest-Client-2-Restlet</module>
+        <module>Rest-Client-3-Feign</module>
     </modules>
 
     <properties>
@@ -133,6 +124,7 @@
             </snapshots>
         </repository>
     </repositories>
+
 
     <dependencyManagement>
         <dependencies>
@@ -248,9 +240,84 @@
                 </exclusions>
             </dependency>
 
+            <!-- Swagger -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>2.9.2</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>2.9.2</version>
+            </dependency>
+
+            <!-- Structured logging -->
+            <dependency>
+                <groupId>structlog4j</groupId>
+                <artifactId>structlog4j-api</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+
+            <!-- Optional JSON formatter -->
+            <dependency>
+                <groupId>structlog4j</groupId>
+                <artifactId>structlog4j-json</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+            <version>1.18.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.vaadin.external.google</groupId>
+                    <artifactId>android-json</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+    </dependencies>
 
     <build>
         <plugins>

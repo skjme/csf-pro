@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>root</artifactId>
+        <groupId>cn.chaseshu</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>nacos-feign-api</artifactId>
+    <version>1.0</version>
+    <description>Account API/DTO for sharing between Client/Server</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.chaseshu</groupId>
+            <artifactId>nacos-common-lib</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
+
+
+</project>

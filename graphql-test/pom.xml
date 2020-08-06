@@ -14,12 +14,63 @@
         <maven.compiler.source>1.8</maven.compiler.source>
     </properties>
 
+<!--    implementation 'com.graphql-java:graphql-java:11.0' // NEW-->
+<!--    implementation 'com.graphql-java:graphql-java-spring-boot-starter-webmvc:1.0' // NEW-->
+<!--    implementation 'com.google.guava:guava:26.0-jre' // NEW-->
+<!--    implementation 'org.springframework.boot:spring-boot-starter-web'-->
+<!--    testImplementation 'org.springframework.boot:spring-boot-starter-test'-->
+
     <dependencies>
         <dependency>
             <groupId>com.graphql-java</groupId>
             <artifactId>graphql-java</artifactId>
-            <version>14.0</version>
+            <version>11.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java-spring-boot-starter-webmvc</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>26.0-jre</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.1.2.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>2.1.2.RELEASE</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>graphql-test</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

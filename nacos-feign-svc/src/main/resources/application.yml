@@ -1,0 +1,17 @@
+server:
+  port: 9092
+spring:
+  profiles:
+    active: dev
+  application:
+#    name: nacos-feign
+    name: account-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+shukejian:
+  common:
+    sentry-dsn: s #${SENTRY_DSN}
+    deploy-env: d #${DEPLOY:V2}

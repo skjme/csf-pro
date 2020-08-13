@@ -17,33 +17,38 @@
     <version>1.0</version>
 
     <modules>
-<!--        <module>demo</module>-->
-<!--        <module>zk</module>-->
-<!--        <module>rabbitmq</module>-->
+        <!--        <module>demo</module>-->
+        <!--        <module>zk</module>-->
+        <!--        <module>rabbitmq</module>-->
         <!--        <module>multiThread</module>-->
-        <!--        <module>nio</module>-->
+                <module>nio</module>
         <!--        <module>sharding-jdbc-master-slave</module>-->
-<!--        <module>PMathematics</module>-->
-        <!--        <module>nio_socket_programming_technical</module>-->
-<!--        <module>multi-thread-programming</module>-->
-<!--        <module>netty-pro</module>-->
-<!--        <module>thinking-in-spring</module>-->
-<!--        <module>cglib</module>-->
+        <!--        <module>PMathematics</module>-->
+
+        <module>nio_socket_programming_technical</module>
+        <module>multi-thread-programming</module>
+        <module>netty-pro</module>
+
+
+        <!--        <module>cglib</module>-->
         <module>nacos-test-config</module>
         <module>nacos-test-discovery</module>
         <module>nacos-test-consumer</module>
         <!--        <module>java14-test</module>-->
-<!--        <module>thinking-in-springboot</module>-->
-<!--        <module>spring-cloud-stream-1-producer</module>-->
-<!--        <module>spring-cloud-stream-2-consumer</module>-->
-<!--        <module>spring-cloud-stream-3-consumer</module>-->
-<!--        <module>kafka-test1</module>-->
-<!--        <module>rocketmq-test1</module>-->
-<!--        <module>j2cache-test1</module>-->
-<!--        <module>activemq-test1</module>-->
-<!--        <module>Memcached-Java-Client</module>-->
-<!--        <module>graphql-test</module>-->
-<!--        <module>shardingsphere-test01</module>-->
+
+        <!--        <module>thinking-in-springboot</module>-->
+        <!--        <module>thinking-in-spring</module>-->
+
+        <!--        <module>spring-cloud-stream-1-producer</module>-->
+        <!--        <module>spring-cloud-stream-2-consumer</module>-->
+        <!--        <module>spring-cloud-stream-3-consumer</module>-->
+        <!--        <module>kafka-test1</module>-->
+        <!--        <module>rocketmq-test1</module>-->
+        <!--        <module>j2cache-test1</module>-->
+        <!--        <module>activemq-test1</module>-->
+        <!--        <module>Memcached-Java-Client</module>-->
+        <!--        <module>graphql-test</module>-->
+        <!--        <module>shardingsphere-test01</module>-->
 
         <module>Sentinel-test1</module>
 
@@ -54,6 +59,7 @@
         <module>Rest-Client-1-CXF</module>
         <module>Rest-Client-2-Restlet</module>
         <module>Rest-Client-3-Feign</module>
+        <module>sentry-spring-boot</module>
     </modules>
 
     <properties>

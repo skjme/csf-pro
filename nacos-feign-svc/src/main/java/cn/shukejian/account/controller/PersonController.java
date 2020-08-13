@@ -3,11 +3,9 @@ package cn.shukejian.account.controller;
 import cn.shukejian.account.model.Person;
 import cn.shukejian.account.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/person")
@@ -21,8 +19,14 @@ public class PersonController {
         person.setName("chaseshu");
         person.setAge(37);
         person.setMessage("this is a test !");
-        return person ;
+        return person;
+    }
 
+    @RequestMapping(value = "/create", method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public String createPerson(@RequestBody Person person) {
+        System.out.println(person.getName() + "-" + person.getAge());
+        return "Success, Person Id: " + person.getId();
     }
 
 }

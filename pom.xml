@@ -60,6 +60,8 @@
         <module>Rest-Client-2-Restlet</module>
         <module>Rest-Client-3-Feign</module>
         <module>sentry-spring-boot</module>
+        <module>MINA-PRO</module>
+        <module>RxJava-Test</module>
     </modules>
 
     <properties>

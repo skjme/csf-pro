@@ -4,6 +4,18 @@
 
 ### 技术框架梳理：
 
+    **2020**
+    注册、配置中心 nacos  
+    负载均衡 ribbon 
+    声明式客户端 feign 
+    限流/断路器 sentinel 
+    全链路监控 skywalking  
+    日志 ELK 
+    消息队列 Spring Cloud Stream + kafka/RocketMQ/RabbitMQ  
+    分布式事务seata
+
+
+    **2019**
     - egg+sequelize+mysql+ant design pro NODE开发前后端
     - xll-job 分布式任务调度平台
     - apollo 携程分布式配置中心
@@ -28,7 +40,7 @@
     
     
 ### 开发测试工具
-    
+  
     IntelliJ IDEA
     Visual Studio Code
     Atom

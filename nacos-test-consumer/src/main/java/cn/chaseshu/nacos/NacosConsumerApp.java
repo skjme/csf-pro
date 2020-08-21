@@ -21,6 +21,7 @@ public class NacosConsumerApp {
 
         @Autowired
         private LoadBalancerClient loadBalancerClient;
+
         @Autowired
         private RestTemplate restTemplate;
 

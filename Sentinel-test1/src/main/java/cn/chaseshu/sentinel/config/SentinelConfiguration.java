@@ -25,7 +25,7 @@ public class SentinelConfiguration {
         return new SentinelResourceAspect();
     }
 
-//    @Bean
+    @Bean
     public NacosDataSource nacosDataSource(ObjectMapper objectMapper) {
         // <1> Nacos 配置。这里先写死，推荐后面写到 application.yaml 配置文件中。
         String serverAddress = "127.0.0.1:8848"; // Nacos 服务器地址
@@ -58,7 +58,7 @@ public class SentinelConfiguration {
     @Value("${spring.application.name}")
     private String applicationName;
 
-    @Bean
+//    @Bean
     public ApolloDataSource apolloDataSource(ObjectMapper objectMapper) {
         // <1> Apollo 配置。这里先写死，推荐后面写到 application.yaml 配置文件中。
         String appId = applicationName; // Apollo 项目编号。一般情况下，推荐和 spring.application.name 保持一致

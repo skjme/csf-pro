@@ -4,14 +4,40 @@ import com.alibaba.csp.sentinel.Entry;
 import com.alibaba.csp.sentinel.SphU;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/demo")
 public class DemoController {
+
+    @Autowired
+    private DiscoveryClient discoveryClient;
+
+    @Autowired
+    private RestTemplate restTemplate;
+
+    @GetMapping("discovery")
+    public Object discovery(@RequestParam(value = "serviceId",defaultValue = "ruyiyun-api") String serviceId){
+        List<ServiceInstance> instances = discoveryClient.getInstances(serviceId);
+        String s = instances.stream().map(v -> v.getUri().toString() + "/app/index/home/1").findAny().orElseThrow(() -> new IllegalArgumentException("没实例"));
+        System.out.println(s);
+        ResponseEntity<Map> entity = restTemplate.getForEntity(s, Map.class);
+        System.out.println(entity);
+
+        return instances;
+    }
 
     @GetMapping("/echo")
     public String echo() {

@@ -3,12 +3,17 @@ server:
 
 spring:
   application:
-    name: cloudalibaba-sentinel-service
+    name: sentinel-service
   cloud:
     nacos:
       discovery:
         # 配置nacos注册服务中心地址
         server-addr: localhost:8848
+        cluster-name: shanghai
+        metadata:
+          instance: c
+          haha: hehe
+
       sentinel:
         transport:
           # 配置sendtinel dashboard地址
@@ -17,7 +22,13 @@ spring:
           port: 8719
 
 management:
-  endports:
+  endpoint:
+    info:
+      enabled: true
+    health:
+      show-details: always
+  endpoints:
     web:
       exposure:
-        include: '*'
+        include: '*' # 暴露所有端点
+

@@ -1,10 +1,10 @@
 server:
   port: 9092
 spring:
-  profiles:
-    active: dev
+  #  profiles:
+  #    active: dev
   application:
-#    name: nacos-feign
+    #    name: nacos-feign
     name: account-service
   cloud:
     nacos:
@@ -15,3 +15,29 @@ shukejian:
   common:
     sentry-dsn: s #${SENTRY_DSN}
     deploy-env: d #${DEPLOY:V2}
+
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  level:
+    cn.shukejian.account: DEBUG
+
+feign:
+  client:
+    config:
+      account-service:    # 服务名
+        loggerLevel: BASIC
+          #         BASIC
+          #          FULL
+          #          HEADERS
+        #          NONE
+  httpclient:
+    enabled: true
+    max-ccnnections: 200
+

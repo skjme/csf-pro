@@ -8,14 +8,14 @@ import io.reactivex.rxjava3.disposables.Disposable;
 public class Test {
 
     public static void main(String[] args) {
-        // 被观察者
+        // 被观察者 (启点)
         Observable.just("hello")
                 // 转换处理
                 .map(s -> {
                     System.out.println("-------2--------");
                     return s.length();
                 })
-                // 观察者
+                // 观察者 （终点）
                 .subscribe(
                         new Observer<Integer>() {
                             @Override

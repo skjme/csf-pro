@@ -1,5 +1,6 @@
 package cn.shukejian.account.controller;
 
+import cn.shukejian.account.client.BaiduClient;
 import cn.shukejian.account.service.AccountService;
 import cn.shukejian.common.api.BaseResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,14 @@ public class HelloController {
 
     @Autowired
     private AccountService accountService;
+
+    @Autowired
+    private BaiduClient baiduClient;
+
+    @GetMapping("baidu")
+    String baidu(){
+        return baiduClient.baiduIndex();
+    }
 
     @GetMapping("/sayHello")
     String sayHello() {

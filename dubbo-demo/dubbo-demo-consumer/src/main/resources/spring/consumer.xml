@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
+    <!-- consumer's application name, used for tracing dependency relationship (not a matching criterion),
+    don't set it same as provider -->
+    <dubbo:application name="consumer-of-helloworld-app"/>
+
+    <!-- 1 使用multicast广播注册中心暴露发现服务地址 -->
+    <!-- use multicast registry center to discover service -->
+    <!--    <dubbo:registry address="multicast://224.5.6.7:1234"/>-->
+
+    <!-- 2  修改其中的dubbo:registry，替换成Provider提供的注册中心地址, 如：-->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
+
+<!--    <dubbo:protocol host="192.168.1.48" />-->
+
+    <!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
+    <!-- generate proxy for the remote service, then demoService can be used in the same way as the local regular interface -->
+    <dubbo:reference id="demoService" check="true" interface="org.apache.dubbo.demo.DemoService"/>
+
+</beans>

@@ -61,6 +61,10 @@
         <module>sentry-spring-boot</module>
         <module>MINA-PRO</module>
         <module>RxJava-Test</module>
+        <module>dubbo-demo</module>
+        <module>docker-demo</module>
+        <module>Java15-Test</module>
+        <module>kill15pid</module>
     </modules>
 
     <properties>

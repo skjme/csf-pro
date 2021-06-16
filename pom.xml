@@ -65,6 +65,7 @@
         <module>docker-demo</module>
         <module>Java15-Test</module>
         <module>kill15pid</module>
+        <module>dp-demo</module>
     </modules>
 
     <properties>

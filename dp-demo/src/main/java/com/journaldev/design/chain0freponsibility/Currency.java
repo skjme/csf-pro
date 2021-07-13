@@ -1,0 +1,14 @@
+package com.journaldev.design.chain0freponsibility;
+
+public class Currency {
+
+	private int amount;
+	
+	public Currency(int amt){
+		this.amount=amt;
+	}
+	
+	public int getAmount(){
+		return this.amount;
+	}
+}

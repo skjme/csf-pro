@@ -67,6 +67,7 @@
         <module>kill15pid</module>
         <module>dp-demo</module>
         <module>thinking-in-springcloud</module>
+        <module>cglib</module>
     </modules>
 
     <properties>

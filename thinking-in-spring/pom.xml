@@ -107,16 +107,25 @@
             <version>2.5</version>
         </dependency>
     
+        <!-- Spring data redis -->
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-redis</artifactId>
             <version>2.5.5</version>
         </dependency>
     
+        <!-- redis client lettuce -->
         <dependency>
             <groupId>io.lettuce</groupId>
             <artifactId>lettuce-core</artifactId>
             <version>6.1.5.RELEASE</version>
+        </dependency>
+        
+        <!-- redis client jedis -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>3.6.3</version>
         </dependency>
         
     </dependencies>

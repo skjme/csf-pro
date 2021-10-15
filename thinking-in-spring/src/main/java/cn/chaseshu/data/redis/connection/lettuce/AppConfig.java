@@ -1,4 +1,4 @@
-package cn.chaseshu.data.redis.lettuce;
+package cn.chaseshu.data.redis.connection.lettuce;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

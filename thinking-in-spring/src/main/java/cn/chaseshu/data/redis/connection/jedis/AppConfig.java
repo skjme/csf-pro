@@ -1,4 +1,4 @@
-package cn.chaseshu.data.redis.jedis;
+package cn.chaseshu.data.redis.connection.jedis;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

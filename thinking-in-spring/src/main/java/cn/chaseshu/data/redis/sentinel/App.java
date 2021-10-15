@@ -1,7 +1,7 @@
-package cn.chaseshu.data.redis.lettuce;
+package cn.chaseshu.data.redis.sentinel;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -13,11 +13,12 @@ public class App {
         
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
     
-        context.register(AppConfig.class);
+//        context.register(JedisConfig.class);
+        context.register(LettuceConfig.class);
     
         context.refresh();
     
-        LettuceConnectionFactory connectionFactory = context.getBean(LettuceConnectionFactory.class);
+        RedisConnectionFactory connectionFactory = context.getBean(RedisConnectionFactory.class);
     
         RedisTemplate<String, String> template = new RedisTemplate();
         template.setConnectionFactory(connectionFactory);

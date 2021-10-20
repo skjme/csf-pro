@@ -10,6 +10,8 @@
 .settings
 .springBeans
 .sts4-cache
+*/.extract
+*/tomcat/tomcat_9000/*
 
 ### IntelliJ IDEA ###
 .idea

@@ -17,7 +17,7 @@ public class DemoServlet extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse rep) throws IOException {
         String name = req.getParameter("name");
         System.out.println("name:" + name);
-        //rep.setHeader("Content-type", "text/html;charset=UTF-8");
+        
         rep.setCharacterEncoding("UTF-8");
         rep.setContentType("text/html;charset=UTF-8");
         PrintWriter writer = rep.getWriter();

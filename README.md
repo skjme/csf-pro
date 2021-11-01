@@ -4,6 +4,11 @@
 
 ### 技术框架梳理：
 
+    **2022**
+    NETTY
+    JVM
+    REIDS
+
     **2020**
     注册、配置中心 nacos  
     负载均衡 ribbon 
@@ -56,7 +61,6 @@
     MySQL Workbench
     Navicat Premuim
     rdm
-    Robo 3T
     
     Youdao Note
     

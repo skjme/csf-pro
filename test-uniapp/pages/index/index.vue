@@ -121,45 +121,46 @@
 			async imageClassify(b64) {
 
 				// 1 access token
-				// // https://aip.baidubce.com/oauth/2.0/token
-				// var [err, res] = await uni.request({
-				// 	url: 'https://aip.baidubce.com/oauth/2.0/token',
-				// 	data: {
-				// 		grant_type: 'client_credentials',
-				// 		client_id: '7nUmiwr3W0AtvR7gANi3vUr5',
-				// 		client_secret: '23uir4CekCTXLGp1rpO5ciiMxWZa0Kaj'
-				// 	},
-				// 	header: {
-				// 		'Content-Type': 'application/x-www-form-urlencoded' //自定义请求头信息
-				// 	},
-				// 	// success: (res) => {
-				// 	// 	console.log(res.data);
-				// 	// 	this.text = 'request success';
-				// 	// }
-				// })
+				// https://aip.baidubce.com/oauth/2.0/token
+				var [err, res] = await uni.request({
+					url: 'https://aip.baidubce.com/oauth/2.0/token',
+					data: {
+						grant_type: 'client_credentials',
+						client_id: '7nUmiwr3W0AtvR7gANi3vUr5',
+						client_secret: '23uir4CekCTXLGp1rpO5ciiMxWZa0Kaj'
+					},
+					header: {
+						'Content-Type': 'application/x-www-form-urlencoded' //自定义请求头信息
+					},
+					// success: (res) => {
+					// 	console.log(res.data);
+					// 	this.text = 'request success';
+					// }
+				})
 
-				// var access_token = res.data.access_token;
-				// console.log('access_token', access_token)
+				var access_token = res.data.access_token;
+				console.log('access_token', access_token)
 
 				// 2 API 图像识别
-				// // https://aip.baidubce.com/rest/2.0/image-classify/v2/advanced_general
-				// var [err, res] = await uni.request({
-				// 	url: 'https://aip.baidubce.com/rest/2.0/image-classify/v2/advanced_general',
-				// 	method: 'POST',
-				// 	data: {
-				// 		image: b64,
-				// 		access_token: access_token
-				// 	},
-				// 	header: {
-				// 		'Content-Type': 'application/x-www-form-urlencoded' //自定义请求头信息
-				// 	},
-				// 	// success: (res) => {
-				// 	// 	this.parseResults(res.result);
-				// 	// }
-				// })
-				// console.log(res);
-				var res = {"result_num":5,"result":[{"keyword":"拖鞋","score":0.769782,"root":"商品-鞋子"},{"keyword":"洞洞鞋","score":0.608569,"root":"商品-鞋子"},{"keyword":"男士凉鞋","score":0.441261,"root":"商品-鞋子"},{"keyword":"拖鞋/人字拖","score":0.264241,"root":"商品-鞋子"},{"keyword":"高跟鞋","score":0.036473,"root":"商品-鞋子"}],"log_id":1478646374890833082}
-				this.parseResults(res.result);
+				// https://aip.baidubce.com/rest/2.0/image-classify/v2/advanced_general
+				var [err, res] = await uni.request({
+					url: 'https://aip.baidubce.com/rest/2.0/image-classify/v2/advanced_general',
+					method: 'POST',
+					data: {
+						image: b64,
+						access_token: access_token
+					},
+					header: {
+						'Content-Type': 'application/x-www-form-urlencoded' //自定义请求头信息
+					},
+					// success: (res) => {
+					// 	this.parseResults(res.result);
+					// }
+				})
+				console.log(res);
+				this.parseResults(res.data.result);
+				// var res = {"result_num":5,"result":[{"keyword":"拖鞋","score":0.769782,"root":"商品-鞋子"},{"keyword":"洞洞鞋","score":0.608569,"root":"商品-鞋子"},{"keyword":"男士凉鞋","score":0.441261,"root":"商品-鞋子"},{"keyword":"拖鞋/人字拖","score":0.264241,"root":"商品-鞋子"},{"keyword":"高跟鞋","score":0.036473,"root":"商品-鞋子"}],"log_id":1478646374890833082}
+				// this.parseResults(res.result);
 			},
 			//4.展示图像识别的结果
 			parseResults(result) {

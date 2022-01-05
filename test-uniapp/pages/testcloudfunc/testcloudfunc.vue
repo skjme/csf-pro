@@ -1,6 +1,8 @@
 <template>
 	<view>
-		<button @click="sayHello()">class cloud function</button>
+		<text>call cloud function</text>
+		<button @click="sayHello()">sayHello</button>
+		<button @click="trashClassify()">trashClassify</button>
 	</view>
 </template>
 
@@ -20,6 +22,16 @@
 						name: 'shu'
 					}
 				})
+			},
+			trashClassify:function(){
+				uniCloud.callFunction({
+					name:'TrashClassify',
+					data:{
+						keyword:'香蕉'
+					}
+				}).then(res => {
+					console.log(res)
+				});
 			}
 		}
 	}

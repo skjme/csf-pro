@@ -7,14 +7,18 @@
 			<text class="title">{{title}}</text>
 		</view>
 
+		<navigator url="../testcloudfunc/testcloudfunc" hover-class="navigator-hover">
+			<button type="default">跳转到云函数页面</button>
+		</navigator>
+
 		<view>
 			<button size="mini" @click="takeLocalPhoto">从相册或照相机选择照片</button>
 
 			<image mode="aspectFit" :src="imagePath"></image>
-			
-		<view>
-			<text>{{ selectedName}}</text>
-		</view>
+
+			<view>
+				<text>{{ selectedName}}</text>
+			</view>
 
 		</view>
 
@@ -86,7 +90,7 @@
 				array: ['中国', '美国', '巴西', '日本'],
 				index: 0,
 				imagePath: "",
-				selectedName:""
+				selectedName: ""
 			}
 		},
 		onLoad() {
@@ -191,14 +195,14 @@
 			},
 
 			//5.使用图片识别结果去查询垃圾所属分类，展示结果
-            async selectRecResult(index){
-                this.selectedName=this.recResults[index].keyword;
-                 
-                console.log(this.selectedName);
-                 
-                // const searchRes = await this.searchKeyword(this.selectedName);
-                // this.searchResults = searchRes;
-            },
+			async selectRecResult(index) {
+				this.selectedName = this.recResults[index].keyword;
+
+				console.log(this.selectedName);
+
+				// const searchRes = await this.searchKeyword(this.selectedName);
+				// this.searchResults = searchRes;
+			},
 
 
 			bindPickerChange: function(e) {

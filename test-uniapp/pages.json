@@ -6,7 +6,16 @@
 				"navigationBarTitleText": "uni-app测试"
 			}
 		}
-	],
+        ,{
+            "path" : "pages/testcloudfunc/testcloudfunc",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

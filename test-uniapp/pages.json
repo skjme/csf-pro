@@ -20,7 +20,7 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "密码族谱",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": true
             }
         } ,{
             "path" : "pages/addressbook/addEntry",
@@ -34,6 +34,13 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "添加族人",
+                "enablePullDownRefresh": false
+            }
+		} ,{
+            "path" : "pages/addressbook/search",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "密码族谱",
                 "enablePullDownRefresh": false
             }
         }

@@ -74,8 +74,13 @@
 
 			init: function() {
 
-				this.api2_token = uni.getStorageSync('api2_token');
-				console.log(this.api2_token)
+				//this.api2_token = uni.getStorageSync('api2_token');
+				// console.log(this.api2_token)
+				
+				this.lately = uni.getStorageSync('ab_list');
+				if(this.lately){
+					return;
+				}
 
 				let uid = 169952;
 				uni.request({
@@ -93,10 +98,12 @@
 						if (res.data.success) {
 							this.data = res.data.data;
 							this.dataList = this.data.list;
-							this.today = this.dataList;
+							// this.today = this.dataList;
 							this.lately = this.dataList;
-							this.upcoming = this.dataList;
-							this.future = this.dataList;
+							// this.upcoming = this.dataList;
+							// this.future = this.dataList;
+							
+							uni.setStorageSync('ab_list', this.dataList)
 						}
 					}
 				})
@@ -126,9 +133,9 @@
 			},
 			jumpSearch: function() {
 				console.log('jumpSearch')
-				// wx.navigateTo({
-				// 	url: "../search/search"
-				// });
+				uni.navigateTo({
+					url: "../addressbook/search"
+				});
 			},
 			toDanGao: function() {
 				console.log('toDanGao')

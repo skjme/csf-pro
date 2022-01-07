@@ -20,6 +20,10 @@
 		</navigator><navigator url="../addressbook/addressbook" hover-class="navigator-hover">
 			<button type="default">goList</button>
 		</navigator>
+			
+		</navigator><navigator url="../addressbook/search" hover-class="navigator-hover">
+			<button type="default">search</button>
+		</navigator>
 
 		<view style="text-align: center;">
 			<button size="default" @click="takeLocalPhoto">从相册或照相机选择照片</button>

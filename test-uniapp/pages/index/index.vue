@@ -11,11 +11,14 @@
 			<button type="default">跳转到云函数页面</button>
 		</navigator>
 		
-		<navigator url="../addressbook/addForm?uuid=123456789"  hover-class="navigator-hover">
+		<navigator url="../addressbook/addForm?uuid="  hover-class="navigator-hover">
 			<button type="default">addForm</button>
+		
+		<navigator url="../addressbook/addForm?uuid=123456789"  hover-class="navigator-hover">
+			<button type="default">editForm</button>
 			
 		</navigator><navigator url="../addressbook/addressbook" hover-class="navigator-hover">
-			<button type="default">跳转到列表</button>
+			<button type="default">goList</button>
 		</navigator>
 
 		<view style="text-align: center;">

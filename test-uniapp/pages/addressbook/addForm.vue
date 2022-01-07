@@ -1,7 +1,7 @@
 <!-- 添加表单 -->
 <template>
 	<view class="container">
-		<image @click="getPhoto" class="avatarIcon" src="{{userAvatar}}"></image>
+		<image @tap="getPhoto" class="avatarIcon" src="{{userAvatar}}"></image>
 
 		<view class="userInfo">
 			<text class="userInfo-title">姓名</text>
@@ -103,19 +103,19 @@
 				</view>
 
 				<picker-view @change="dateChange" class="date-content"
-					indicatorStyle="height: {{pickerIndicatorHeight}};" value="{{calValues}}">
+					:indicatorStyle="'height: ${this.pickerIndicatorHeight}'" value="{{calValues}}">
 					<picker-view-column>
-						<view class="date-content-item" style="line-height: {{pickerIndicatorHeight}}"
+						<view class="date-content-item" :style="'line-height:${this.pickerIndicatorHeight}' "
 							v-for="(item, index) in calYears">{{item.name}}</view>
 					</picker-view-column>
 
 					<picker-view-column>
-						<view class="date-content-item" style="line-height: {{pickerIndicatorHeight}}"
+						<view class="date-content-item" :style="'line-height:${this.pickerIndicatorHeight}' "
 							v-for="(item, index) in calMonths">{{item.name}}</view>
 					</picker-view-column>
 
 					<picker-view-column>
-						<view class="date-content-item" style="line-height: {{pickerIndicatorHeight}}"
+						<view class="date-content-item" :style="'line-height:${this.pickerIndicatorHeight}' "
 							v-for="(item, index) in calDays">{{item.name}}</view>
 					</picker-view-column>
 
@@ -123,24 +123,24 @@
 			</view>
 		</view>
 
-		<!-- <view class="picker-layout" wx:if="{{isShowDivision}}">
+		<!-- <view class="picker-layout" v-if="isShowDivision">
 			<view class="confirm-layout">
 				<view @click="confirmCover" class="confirm-btn">确认</view>
 			</view>
-			<picker-view bindchange="bindAddressChange" @click="confirmCover" class="picker-view"
+			<picker-view @change="bindAddressChange" @click="confirmCover" class="picker-view"
 				indicatorStyle="height: 40px;" style="width: 100%; height: 200px;" value="{{divisionValues}}">
 				<picker-view-column>
-					<view class="addr-item" wx:for="{{cityRenderprovinceArr}}">{{item.name}}</view>
+					<view class="addr-item" v-for="cityRenderprovinceArr">{{item.name}}</view>
 				</picker-view-column>
 				<picker-view-column>
-					<view class="addr-item" wx:for="{{cityRendercityArr}}">{{item.name}}</view>
+					<view class="addr-item" v-for="cityRendercityArr">{{item.name}}</view>
 				</picker-view-column>
 				<picker-view-column>
-					<view class="addr-item" wx:for="{{cityRendercountyArr}}">{{item.name}}</view>
+					<view class="addr-item" v-for="cityRendercountyArr">{{item.name}}</view>
 				</picker-view-column>
 			</picker-view>
 			<view @click="cancelCover" class="picker-cover" style="height:{{coverHeight}}px;"
-				wx:if="{{isShowDivision}}"></view>
+				v-if="isShowDivision"></view>
 		</view> -->
 	</view>
 </template>
@@ -188,19 +188,32 @@
 				showHint: !1,
 				hintContent: ',',
 				userBirth_l: false, // 是否使用农历
+				
+				isCreate: false,
 
 			}
 		},
 		onLoad(option) {
 			console.log('option', option); //打印出上个页面传递的参数。
 			// var e = parseInt(wx.getSystemInfoSync().screenWidth / 15);
-			var isCreate = true
-			 if(option.uuid){
-				isCreate = false
+			 //this.isCreate = false
+			 if(!option.uuid){ // 新建
+				this.isCreate = true
+				console.log('uuid is null.....')
 				this.updateCalendarWheel(1990, 1, 1, 0);
+				
 			 }
+			 
 			this.uuid = option.uuid || this.getUUID(20, 30)
-			this.initData(isCreate)
+			this.initData(this.isCreate)
+		},
+		
+		onShow(){
+			console.log('this.isCreate', this.isCreate)
+			uni.setNavigationBarTitle({
+				title: `${this.isCreate ? '添加族人':'编辑族人的资料'}`,
+			});
+			
 		},
 
 		methods: {

@@ -6,7 +6,7 @@
 		
 		<view class="header-nav">
 			<view class="search-container">
-				<icon bindtap="searchClickEvent" size="15" type="search"></icon>
+				<icon @tap="searchClickEvent" size="15" type="search"></icon>
 				<view @click="jumpSearch" class="input">搜索{{ lately.length}}位族人</view>
 			</view>
 		</view>
@@ -17,7 +17,7 @@
 			<view class="title">
 				<text class="ico"></text>近期过生日
 			</view>
-			<view catchtap="jump" class="birthdayInfo clearfix" data-path="detail" data-shouxing="{{item.shouXing}}"
+			<view @tap="jump(item.id)" class="birthdayInfo clearfix" data-path="detail" data-shouxing="{{item.shouXing}}"
 				data-url="{{item.wishUri}}" data-uuid="{{item.id}}" v-for="(item, index) in lately">
 				<view class="left clearfix">
 					<image src="{{item.avatar}}"></image>
@@ -103,11 +103,13 @@
 
 			},
 
-		    jump: function() {
+		    jump: function(id) {
 				console.log('jump')
-				// uni.navigateTo({
-				// 	url: "../addressbook/addEntry"
-				// });
+				console.log(id)
+				
+				uni.navigateTo({
+					url: `../addressbook/addForm?uuid=${id}`
+				});
 			},
 			
 			addFriend: function() {

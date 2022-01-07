@@ -10,9 +10,16 @@
 		<navigator url="../testcloudfunc/testcloudfunc" hover-class="navigator-hover">
 			<button type="default">跳转到云函数页面</button>
 		</navigator>
+		
+		<navigator url="../addressbook/addForm?uuid=123456789"  hover-class="navigator-hover">
+			<button type="default">addForm</button>
+			
+		</navigator><navigator url="../addressbook/addressbook" hover-class="navigator-hover">
+			<button type="default">跳转到列表</button>
+		</navigator>
 
-		<view>
-			<button size="mini" @click="takeLocalPhoto">从相册或照相机选择照片</button>
+		<view style="text-align: center;">
+			<button size="default" @click="takeLocalPhoto">从相册或照相机选择照片</button>
 
 			<image mode="aspectFit" :src="imagePath"></image>
 

@@ -12,7 +12,7 @@
 			<view @tap="doSearch" class="search" v-if="searchActive">取消</view>
 		</view>
 		<view class="searchCont">
-			<blcok wx:for="{{searchItem}}">
+			<blcok v-for="(item, index) in searchItem">
 				<!-- <view catchtap="jumpDetali" class="searchItem clearfix" data-uuid="{{item.uuid}}">
 					<view class="left">
 						<view class="avatar">
@@ -30,7 +30,7 @@
 						<view class="nextBirthday">{{item.textLabel}}</view>
 					</view>
 				</view> -->
-				<view @tap="jump(item.id)" class="searchItem clearfix test_line1" 
+				<view @tap="jump(item.id)"  class="searchItem clearfix test_line1" 
 					data-path="detail" data-shouxing="{{item.shouXing}}"
 					data-url="{{item.wishUri}}" data-uuid="{{item.id}}">
 					<view class="left clearfix1">
@@ -132,13 +132,14 @@
 					url: "../addressbook/addressbook"
 				});
 			},
-			jumpDetali: function(t) {
-				var e = t.currentTarget.dataset.uuid,
-					a = "";
-				a = e ? "../birthDetail/index?uuid=" + e + "&isme=0" : "../birthDetail/index?uuid=" + e + "&isme=1",
-					wx.navigateTo({
-						url: a
-					});
+			jump: function(id) {
+				console.log('jump')
+				console.log('id', id)
+		
+				uni.navigateTo({ 
+					url: `../addressbook/addForm?uuid=${id}`
+				});
+				
 			},
 		}
 	}

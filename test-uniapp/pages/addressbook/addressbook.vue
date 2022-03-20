@@ -41,7 +41,7 @@
 		</view>
 		
 	
-		<view @click="jumpImportBir" class="importBir" v-if="lately.length<10 && future.length<10">批量导入生日</view>
+		<!-- <view @click="jumpImportBir" class="importBir" v-if="lately.length<10 && future.length<10">批量导入生日</view> -->
 		<view style="width: 100%; height: 40rpx;"></view>
 		<image @click="addFriend" class="addBtn" src="https://static.shengri.cn/uploads/xydd/web/srgjadd@3x.png">
 		</image>

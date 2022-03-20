@@ -555,6 +555,7 @@
 									    title: '恭喜，操作完成',
 									    duration: 5000,
 										complete:function(){
+											uni.removeStorageSync('ab_list');
 											uni.navigateTo({
 												url:'../addressbook/addressbook'
 											})

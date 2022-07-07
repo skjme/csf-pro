@@ -22,7 +22,7 @@
     "egg-validate": "^2.0.2",
     "egg-view-nunjucks": "^2.2.0",
     "jsonwebtoken": "^8.4.0",
-    "moment": "^2.22.2",
+    "moment": "^2.29.4",
     "mysql2": "^1.6.4",
     "sequelize": "^4.41.2"
   },

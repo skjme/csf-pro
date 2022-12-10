@@ -48,7 +48,7 @@
     "docdash": "1.1.1",
     "ejs": "2.6.2",
     "errorhandler": "1.5.1",
-    "express": "4.16.4",
+    "express": "4.17.3",
     "express-rate-limit": "5.0.0",
     "express-session": "1.16.2",
     "external-ip": "2.1.1",
